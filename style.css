@@ -1,0 +1,184 @@
+body {
+	background-color: #1a75ff;
+	font-family: "Courier new"; /* font-family: 'Comfortaa'; */
+	width: auto;
+	max-width: 100%;
+	flex-wrap: wrap;
+	overflow: normal;
+	white-space: wrap;
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+	body {
+	  background: black;
+	  color: white;
+	}
+  }
+*/
+
+#adding_25_container {
+	font-family: "Courier new";
+	color: #0066ff;
+}
+
+
+#welcome {
+	font-size: 45px;
+	width: 95%;
+	background-color: white;
+}
+
+html{
+	scroll-behavior: smooth;
+	position: relative;
+}
+
+input {
+	font-size: 90px;
+	width: auto;
+	flex-wrap: wrap;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 48px;
+    font-family: "Courier new";
+    width: auto;
+    flex-wrap: wrap;
+}
+
+
+.image-enlargen {
+	width: 350px;
+	height: auto;
+}
+
+.text-enlargen {
+	width: 600px;
+	height: 200px;
+	text-align: center;
+	font-family: "Courier new";
+	color: #0066ff;
+	font-weight: bold;
+	border: solid black 5px;
+}
+
+.input_style {
+	text-align: center;
+	background-color: white;
+	padding: 30px;
+	font-family: "Courier new";
+	margin: 20px;
+	font-size: 25px;
+	color: #0066ff;
+	font-weight: bold;
+	border: black solid 5px;
+	transition: border, 0.2s;
+}
+
+.input_style:active {
+	color: white;
+	background-color: black;
+	border: white solid 5px;
+}
+
+.input_style:hover {
+	border: red solid 10px;
+}
+
+#info_container {
+	width: auto + -50%;
+	font-size: 27px;
+	text-align: center;
+	background-color: white;
+	padding: 50px;
+	margin: auto;
+}
+
+.colon {
+	color: #0099ff;
+}
+
+.categories {
+	text-align: center;
+} 
+
+#ideal {
+	color: grey;
+}
+
+.info_output {
+	word-wrap: break-word;
+	text-align: center;
+	color: #0080ff;
+	width: auto;
+}
+
+.site-info {
+	background-color: white;
+	padding: 10px;
+	width: 95%;
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+	font-size: 40px;
+}
+
+
+.or {
+	color: red;
+}
+
+#support {
+	padding: 20px;
+	display: inline-block;
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+	font-size: 40px;
+}
+
+#hidden_calc_output {
+	background-color: white;
+	padding: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.text_box {
+	display: inline-block;
+	border: white solid 7px;
+	transition: border, 0.2s;
+}
+
+.text_box:hover {
+	border: red solid 10px;
+}
+
+.text_box:active {
+	border: red solid 10px;
+}
+
+.buttons-style {
+	background-color: white;
+	padding: 25px;
+	width: 650px;
+	height: 180px;
+	margin: auto;
+	border: solid 10px black;
+	font-family: "Courier new";
+	font-size: 50px;
+	text-align: center;
+	font-weight: bold;
+	color: blue;
+	transition: color, font-size, 0.2s;
+}
+
+.buttons-style:hover {
+	font-size: 53px;
+	color: #0080ff;
+}
+
+.buttons-style:active {
+	color:red;
+}
