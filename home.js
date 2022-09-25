@@ -28,14 +28,14 @@ import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/fireba
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
- apiKey: "AIzaSyBnpE-YlKKvHwE9pi3CwhKf1Tq7nthPycE",
+ apiKey: "--",
  authDomain: "caopoints-info.firebaseapp.com",
  databaseURL: "https://caopoints-info-default-rtdb.europe-west1.firebasedatabase.app",
  projectId: "caopoints-info",
  storageBucket: "caopoints-info.appspot.com",
- messagingSenderId: "615159418744",
- appId: "1:615159418744:web:35978469f92b90b5c9828d",
- measurementId: "G-08383DC9PC"
+ messagingSenderId: "-----",
+ appId: "--",
+ measurementId: "-----"
 };
 
 // Initialize Firebase Storage --------
