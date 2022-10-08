@@ -1,11 +1,10 @@
 body {
 	background-color: #1a75ff;
 	font-family: "Courier new"; /* font-family: 'Comfortaa'; */
-	width: auto;
+	width: 100%;
 	max-width: 100%;
-	flex-wrap: wrap;
-	overflow: normal;
 	white-space: wrap;
+	overflow-x: hidden; /* hides the scroll bar at the bottom of the page */
 }
 
 /*
@@ -46,7 +45,6 @@ input::-webkit-input-placeholder {
     width: auto;
     flex-wrap: wrap;
 }
-
 
 .image-enlargen {
 	width: 350px;
@@ -125,7 +123,7 @@ input::-webkit-input-placeholder {
 }
 
 
-.or {
+.important-red {
 	color: red;
 }
 
@@ -136,13 +134,6 @@ input::-webkit-input-placeholder {
 	text-align: center;
 	font-weight: bold;
 	font-size: 40px;
-}
-
-#hidden_calc_output {
-	background-color: white;
-	padding: 20px;
-	text-align: center;
-	font-size: 15px;
 }
 
 .text_box {
@@ -197,14 +188,31 @@ input::-webkit-input-placeholder {
 }
 
 .headings {
-	font-size: 50px;
+	font-size: 70px;
 }
 
 .general_text {
-	font-size: 35px;
+	font-size: 55px;
 	text-align: center;
 	margin: auto;
 	width: 90%;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.general_background {
+	background-color: white;
+	width: 100%;
+	padding: 5px;
+}
+
+#cao-link {
+	color: #0080ff;
+	text-decoration: none;
+	transition: font-size, color, 0.2s;
+}
+
+#cao-link:hover {
+	font-size: 56px;
+	color:blue;
 }
