@@ -1,4 +1,4 @@
-if (window.location.hostname == "caopoints-info.web.app" || window.location.hostname == "caopoints-info.firebaseapp.com") {
+if (window.location.hostname == "---" || window.location.hostname == "----") {
     window.location.href = 'https://cao-points-info.com/'; 
 }
 
