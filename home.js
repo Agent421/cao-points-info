@@ -2,19 +2,17 @@ if (window.location.hostname == "caopoints-info.web.app" || window.location.host
     window.location.href = 'https://cao-points-info.com/'; 
 }
 
-
 // set the page to 50% zoom
 var mobile_user = navigator.userAgent.includes('Mobile') || navigator.userAgent.includes('Android') || navigator.userAgent.includes('Phone');
 
 console.log(navigator.userAgent);
 
 if (mobile_user) {
- document.body.style.zoom = "100%";
+    document.body.style.zoom = "100%";
 }
 else {
- document.body.style.zoom = "50%";
+    document.body.style.zoom = "50%";
 }
-
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
@@ -28,14 +26,14 @@ import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/fireba
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
- apiKey: "--",
- authDomain: "---",
- databaseURL: "---",
- projectId: "---",
- storageBucket: "---",
- messagingSenderId: "-----",
- appId: "--",
- measurementId: "-----"
+ apiKey: "AIzaSyA5BqxvA4AHcwVZ8IPWvSSHEiJ-3sUgF0g",
+ authDomain: "caopoints-info.firebaseapp.com",
+ databaseURL: "https://caopoints-info-default-rtdb.europe-west1.firebasedatabase.app",
+ projectId: "caopoints-info",
+ storageBucket: "caopoints-info.appspot.com",
+ messagingSenderId: "615159418744",
+ appId: "1:615159418744:web:35978469f92b90b5c9828d",
+ measurementId: "G-08383DC9PC"
 };
 
 // Initialize Firebase Storage --------
@@ -373,6 +371,7 @@ var target_num = Number(document.getElementById("target_text").value);
 
      for (var i = 0; i < matches.length; i++) {
          current = matches[i];
+         console.log('current: ', current);
          var ranked_info = gar_and_ptg(current);  // current grade average
          var c_grade_avg = ranked_info[0];
          var c_soultion = ranked_info[1];
