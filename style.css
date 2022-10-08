@@ -182,3 +182,29 @@ input::-webkit-input-placeholder {
 .buttons-style:active {
 	color:red;
 }
+
+
+.bottom-images {
+	width: 350px;
+	height: auto;
+	transition: 0.2s;
+}
+
+.bottom-images:hover {
+	width: 370px;
+	height: auto;
+	margin: auto;
+}
+
+.headings {
+	font-size: 50px;
+}
+
+.general_text {
+	font-size: 35px;
+	text-align: center;
+	margin: auto;
+	width: 90%;
+	font-weight: bold;
+	text-decoration: none;
+}
