@@ -1,419 +1,494 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<link rel="canonical" href="https://cao-points-info.com/" />
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-08383DC9PC"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+if (window.location.hostname == "caopoints-info.web.app" || window.location.hostname == "caopoints-info.firebaseapp.com") {
+    window.location.href = 'https://cao-points-info.com/'; 
+}
 
-	gtag('config', 'G-08383DC9PC');
-	</script>
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-P9SWD5K');</script>
-	<!-- End Google Tag Manager -->
-		<meta charset="utf-8">
-		<meta name="description" content="Outputs required grade averages and suggested grades to reach a CAO point target.">
-		<meta name="keywords" content="CAO, Leaving Cert">
-		<meta name="author" content="Emmanuel Koledoye">
-		<link href='style.css' type='text/css' rel='stylesheet' />
-		<!-- // automatically sets the website to viewed in desktop mode -->
-		<meta name="viewport" content="width=device-width, initial-scale=0.1">
-		<title>
-			Info On CAO Points
-		</title>
-		<!-- This is the favicon image -->
-		<link rel='icon' href='images/logo.png'>
-	</head>
-	<body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9SWD5K"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-		<center>
-			<div id="welcome" class="site-info" style="font-size: 48px;">
-				Enter your <strong class="info_output">CAO point target</strong> into the  <strong class="info_output">text fields</strong> to see the <strong class="important-red">suggested</strong> <strong class="info_output">grade averages</strong>, and   <strong class="info_output">results </strong> required to meet a <strong class="info_output">CAO point target</strong>.
-			</div>
+// set the page to 50% zoom
+var mobile_user = navigator.userAgent.includes('Mobile') || navigator.userAgent.includes('Android') || navigator.userAgent.includes('Phone');
 
-			<a style="display:none;" href="//www.dmca.com/Protection/Status.aspx?ID=2856b17e-9262-4ec9-bc17-c6fda4dbc1f2" title="DMCA.com Protection Status" class="dmca-badge"> <img class="image-enlargen"src ="images/dmca-image.png"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
-		</center>
+// console.log(navigator.userAgent);
 
-		<br>
+if (mobile_user) {
+    document.body.style.zoom = "100%";
+}
+else {
+    document.body.style.zoom = "50%";
+}
 
-		<center>
-			<div style="width: auto;" class="text_box"><input id="target_text" type="number" style="height: 200px;font-size: 70px;font-family: 'Courier new';" class="text-enlargen" class="input_style" placeholder="CAO pts: 1-625"><strong id="target"> </strong></div>
-		</center>
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-storage.js";
 
-		<center>
-			<table>
-				<tr>
-					<th style="display:inline;float:left;">
-						<center>
-						<div style="margin: auto;"class="text_box"><input type="number" id="hl_subs_text"  style="height: 200px;font-size: 70px;" class="text-enlargen" class="input_style" placeholder="HL Subjects: 1-6"><strong id="hl_subs"> </strong></div>
-						</center>
-					</th>
-					
-					
-					<th style="display:inline;float:right;">
-						<center>
-						<div style="margin: auto;"class="text_box"><input type="number" id="ol_subs_text"  style="height: 200px;font-size: 70px;" class="text-enlargen" class="input_style" placeholder="OL Subjects: 1-6"><strong id="ol_subs"> </strong></div>
-						</center>
-					</th>
-				
-				</tr>
-			</table>
-			
-		</center>
-		<br>
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-		<div id="info_container" style="margin:auto">
-			<br>
-			<div id="adding_25_container">
-				<h1>
-					Adding +25
-				</h1>
-			</div>
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+ apiKey: "----",
+ authDomain: "----",
+ databaseURL: "---",
+ projectId: "----",
+ storageBucket: "--",
+ messagingSenderId: "-",
+ appId: "--",
+ measurementId: "-----"
+};
 
-			<div class="categories" id="row1">
-				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output" id="points_req1">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong> <strong class="info_output" id="req_results1">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Minimum) </strong>Grade Average Required<strong class="colon"> : </strong><strong class="info_output" id="grade_avg_req1">  </strong>  </h1>
-			</div>
-
-			<div class="categories" id="row2">
-				<h1><center><strong class="important-red"> OR</strong></center></h1>
-				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output" id="points_req2">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong> <strong class="info_output" id="req_results2">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Minimum) </strong>Grade Average Required<strong class="colon"> : </strong><strong class="info_output" id="grade_avg_req2">  </strong>  </h1>
-			</div>
-		
-
-			<div class="categories" id="row3">
-				<h1><center><strong class="important-red"> OR </strong></center></h1>
-				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output" id="points_req3">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong> <strong class="info_output" id="req_results3">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Minimum) </strong>Grade Average Required<strong class="colon"> : </strong><strong class="info_output" id="grade_avg_req3">  </strong>  </h1>
-			</div>
-
-			<div> <h1><strong id="invalid_input">  </strong></h1> </div>
-		</div>
-
-		<!-- hide all rows -->
-		<script type="text/javascript">
-		// hide all rows
-		for (var i = 0; i < 3; i++) {
-			var row = "row"+String(i+1);
-			document.getElementById(row).style.display = "none";
-		}
-
-		document.getElementById("adding_25_container").style.display = "none";
-		</script>
-
-		<br>
-
-		<center>
-			<table>
-				<tr>
-					<th>
-						<div id = "support">
-							<a href="https://ko-fi.com/agent421"> <img src="images/kofi.png" class="bottom-images"  alt="Support Me On Ko-Fi"> </a>
-						</div>
-					</th>
-
-					<th>
-						<div>
-							<a href="https://github.com/Agent421/cao-points-info"> <img src="images/github.png" class="bottom-images" alt="My github"> </a>
-						</div>
-					</th>
-				</tr>
-			</table>
-		</center>
-
-		<br>
-
-		<center>
-			<div class="general_background">
-				<h1 class="headings"> What is the CAO points system?</h1>
-			</div>
-		
-			<br>
-		
-			<img src="images/points-system.jpg" width="1500px">
-		</center>
-		
-		<br>
-		
-		<div class="general_text">
-			<div class="general_background">
-				<p>
-					CAO Stands for <a href="https://www.cao.ie/" id="cao-link" target="_blank"> <strong class="important-red">C</strong>entral </strong><strong class="important-red">A</strong>pplications </strong><strong class="important-red">O</strong>ffice</a>
-				</p>
-				<p>They essentially process applications for Irish leaving cert students for third-level education.</p>
-				<p>
-					The tool above is targeted at senior Irish Secondary school students. This tool would be for Students from the 4th to 6th year.
-				</p>
-				<p>
-					<strong class="important-red">
-						I am not affiliated with the Central Applications Office or the Irish education system. 
-					</strong>
-				</p>
-			</div>
-		</div>
-		
-		<br>
-
-		<center>
-			<div class="general_background">
-				<h1 class="headings"> Why Use my tool?</h1>
-			</div>
-		</center>
-		
-		<br>
-		
-		<div class="general_text">
-			<div class="general_background">
-					<p>
-					When I was an Irish Leaving cert student it was frustrating and time-consuming to calculate an ideal grade requirement to reach a CAO points target.
-					</p>
-					<p>So I created this tool.</p>
-					<p>The tool quickly outputs an ideal grade requirement to reach a CAO point target which also accounts for the amount of higher level and ordinary level subjects that the user does and then outputs the grade average required as a bonus.</p>
-					<p>The tool saves time as it may be time-consuming to calculate a grade combination that you are comfortable with.</p>
-					<p>The tool also completely <strong class="important-red">FREE</strong> to use and doesn't retain any of the user's inputted information.</p>
-					<p style="color: #0066ff;">TLDR; The tool saves students time, stress, and money.</p>
-			</div>
-		</div>
-
-		<br>
-		
-		<center>
-			<a href="#top">
-				<button class="buttons-style">Back to top</button>
-			</a>
-		</center>
-
-<br>
-
-<script type="module" src="home.js">
-</script>
-
-<script type="module" src="darkreader.js">
-</script>
+// Initialize Firebase Storage --------
+const app = initializeApp(firebaseConfig);
+const storage = getStorage();
+//---------
 
 
-</body>
-</html><!DOCTYPE HTML>
-<html>
-	<head>
-	<link rel="canonical" href="https://cao-points-info.com/" />
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-08383DC9PC"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+function hide_rows() {
+ // hide all rows
+ for (var i = 0; i < 3; i++) {
+     var row = "row"+String(i+1);
+     document.getElementById(row).style.display = "none";
+ }
 
-	gtag('config', 'G-08383DC9PC');
-	</script>
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-P9SWD5K');</script>
-	<!-- End Google Tag Manager -->
-		<meta charset="utf-8">
-		<meta name="description" content="Outputs required grade averages and suggested grades to reach a CAO point target.">
-		<meta name="keywords" content="CAO, Leaving Cert">
-		<meta name="author" content="Emmanuel Koledoye">
-		<link href='style.css' type='text/css' rel='stylesheet' />
-		<!-- // automatically sets the website to viewed in desktop mode -->
-		<meta name="viewport" content="width=device-width, initial-scale=0.1">
-		<title>
-			Info On CAO Points
-		</title>
-		<!-- This is the favicon image -->
-		<link rel='icon' href='images/logo.png'>
-	</head>
-	<body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9SWD5K"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-		<center>
-			<div id="welcome" class="site-info" style="font-size: 48px;">
-				Enter your <strong class="info_output">CAO point target</strong> into the  <strong class="info_output">text fields</strong> to see the <strong class="important-red">suggested</strong> <strong class="info_output">grade averages</strong>, and   <strong class="info_output">results </strong> required to meet a <strong class="info_output">CAO point target</strong>.
-			</div>
+ document.getElementById("invalid_input").style.display = "inline";
+}
 
-			<a style="display:none;" href="//www.dmca.com/Protection/Status.aspx?ID=2856b17e-9262-4ec9-bc17-c6fda4dbc1f2" title="DMCA.com Protection Status" class="dmca-badge"> <img class="image-enlargen"src ="images/dmca-image.png"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
-		</center>
-
-		<br>
-
-		<center>
-			<div style="width: auto;" class="text_box"><input id="target_text" type="number" style="height: 200px;font-size: 70px;font-family: 'Courier new';" class="text-enlargen" class="input_style" placeholder="CAO pts: 1-625"><strong id="target"> </strong></div>
-		</center>
-
-		<center>
-			<table>
-				<tr>
-					<th style="display:inline;float:left;">
-						<center>
-						<div style="margin: auto;"class="text_box"><input type="number" id="hl_subs_text"  style="height: 200px;font-size: 70px;" class="text-enlargen" class="input_style" placeholder="HL Subjects: 1-6"><strong id="hl_subs"> </strong></div>
-						</center>
-					</th>
-					
-					
-					<th style="display:inline;float:right;">
-						<center>
-						<div style="margin: auto;"class="text_box"><input type="number" id="ol_subs_text"  style="height: 200px;font-size: 70px;" class="text-enlargen" class="input_style" placeholder="OL Subjects: 1-6"><strong id="ol_subs"> </strong></div>
-						</center>
-					</th>
-				
-				</tr>
-			</table>
-			
-		</center>
-		<br>
-
-		<div id="info_container" style="margin:auto">
-			<br>
-			<div id="adding_25_container">
-				<h1>
-					Adding +25
-				</h1>
-			</div>
-
-			<div class="categories" id="row1">
-				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output" id="points_req1">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong> <strong class="info_output" id="req_results1">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Minimum) </strong>Grade Average Required<strong class="colon"> : </strong><strong class="info_output" id="grade_avg_req1">  </strong>  </h1>
-			</div>
-
-			<div class="categories" id="row2">
-				<h1><center><strong class="important-red"> OR</strong></center></h1>
-				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output" id="points_req2">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong> <strong class="info_output" id="req_results2">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Minimum) </strong>Grade Average Required<strong class="colon"> : </strong><strong class="info_output" id="grade_avg_req2">  </strong>  </h1>
-			</div>
-		
-
-			<div class="categories" id="row3">
-				<h1><center><strong class="important-red"> OR </strong></center></h1>
-				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output" id="points_req3">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong> <strong class="info_output" id="req_results3">  </strong>  </h1>
-				<h1> <strong id="ideal"> (Minimum) </strong>Grade Average Required<strong class="colon"> : </strong><strong class="info_output" id="grade_avg_req3">  </strong>  </h1>
-			</div>
-
-			<div> <h1><strong id="invalid_input">  </strong></h1> </div>
-		</div>
-
-		<!-- hide all rows -->
-		<script type="text/javascript">
-		// hide all rows
-		for (var i = 0; i < 3; i++) {
-			var row = "row"+String(i+1);
-			document.getElementById(row).style.display = "none";
-		}
-
-		document.getElementById("adding_25_container").style.display = "none";
-		</script>
-
-		<br>
-
-		<center>
-			<table>
-				<tr>
-					<th>
-						<div id = "support">
-							<a href="https://ko-fi.com/agent421"> <img src="images/kofi.png" class="bottom-images"  alt="Support Me On Ko-Fi"> </a>
-						</div>
-					</th>
-
-					<th>
-						<div>
-							<a href="https://github.com/Agent421/cao-points-info"> <img src="images/github.png" class="bottom-images" alt="My github"> </a>
-						</div>
-					</th>
-				</tr>
-			</table>
-		</center>
-
-		<br>
-
-		<center>
-			<div class="general_background">
-				<h1 class="headings"> What is the CAO points system?</h1>
-			</div>
-		
-			<br>
-		
-			<img src="images/points-system.jpg" width="1500px">
-		</center>
-		
-		<br>
-		
-		<div class="general_text">
-			<div class="general_background">
-				<p>
-					CAO Stands for <a href="https://www.cao.ie/" id="cao-link" target="_blank"> <strong class="important-red">C</strong>entral </strong><strong class="important-red">A</strong>pplications </strong><strong class="important-red">O</strong>ffice</a>
-				</p>
-				<p>They essentially process applications for Irish leaving cert students for third-level education.</p>
-				<p>
-					The tool above is targeted at senior Irish Secondary school students. This tool would be for Students from the 4th to 6th year.
-				</p>
-				<p>
-					<strong class="important-red">
-						I am not affiliated with the Central Applications Office or the Irish education system. 
-					</strong>
-				</p>
-			</div>
-		</div>
-		
-		<br>
-
-		<center>
-			<div class="general_background">
-				<h1 class="headings"> Why Use my tool?</h1>
-			</div>
-		</center>
-		
-		<br>
-		
-		<div class="general_text">
-			<div class="general_background">
-					<p>
-					When I was an Irish Leaving cert student it was frustrating and time-consuming to calculate an ideal grade requirement to reach a CAO points target.
-					</p>
-					<p>So I created this tool.</p>
-					<p>The tool quickly outputs an ideal grade requirement to reach a CAO point target which also accounts for the amount of higher level and ordinary level subjects that the user does and then outputs the grade average required as a bonus.</p>
-					<p>The tool saves time as it may be time-consuming to calculate a grade combination that you are comfortable with.</p>
-					<p>The tool also completely <strong class="important-red">FREE</strong> to use and doesn't retain any of the user's inputted information.</p>
-					<p style="color: #0066ff;">TLDR; The tool saves students time, stress, and money.</p>
-			</div>
-		</div>
-
-		<br>
-		
-		<center>
-			<a href="#top">
-				<button class="buttons-style">Back to top</button>
-			</a>
-		</center>
-
-<br>
-
-<script type="module" src="home.js">
-</script>
-
-<script type="module" src="darkreader.js">
-</script>
+document.getElementById("adding_25_container").style.display = "none";
 
 
-</body>
-</html>
+function is_hl(grade) {
+ hl_sub = (37 == grade) || (46 == grade) || (56 == grade) || (66 == grade) || (77 == grade) || (88 == grade) || (100 == grade);
+ if ( (hl_sub == true) && (hl_sub != 25) ){
+     return true;
+ }
+ else{
+     return false;
+ }
+}
+
+// grade average and points to grades as list of numbers
+function gar_and_ptg(points_needed) {
+ var dict = {
+     'h1':90,
+     'h2':80,
+     'h3':70,
+     'h4':60,
+     'h5/o1':50,
+     'h6/o2':40,
+     'h7/o3':30,
+
+     'h5/o1':90,
+     'h6/o2':80,
+     'h7/o3':70,
+     'o4':60,
+     'o5':50,
+     'o6':40,
+     'o7':30,
+ };
+
+ var mixed_dict = {
+     100:'h1',
+     88:'h2',
+     77:'h3',
+     66:'h4',
+     56:'h5/o1',
+     46:'h6/o2',
+     37:'h7/o3',
+
+     56:'h5/o1',
+     46:'h6/o2',
+     37:'h7/o3',
+     28:'o4',
+     20:'o5',
+     12:'o6',
+     0:'o7',
+ };
+
+ var new_target_needed = false;
+ if (points_needed.includes(25) == true ) {
+     var new_target = 0;
+     for (var i = 0; i < points_needed.length-1; i++) {
+         new_target += Number(points_needed[i]);
+     }
+     new_target += 25;
+     new_target_needed = true;
+ }
+
+ var letter_grades = [];
+
+ for (var i = 0; i < points_needed.length; i++) {
+
+     if (points_needed[i] != 25 ) {
+         letter_grades.push( mixed_dict[points_needed[i]] );
+     }
+ }
+
+ var points = [];
+ for (var i = 0; i < letter_grades.length; i++) {
+     points.push( dict[letter_grades[i]] );
+ }
+
+ var total = 0;
+ for (var i = 0; i < points.length; i++) {
+     total += Number(points[i]);
+ }
+
+ total = total / points.length;
+ var percentage_avg = String(Math.round(total))+"%";
+
+ var grades_soultion = [];
+ for (var i = 0; i < points_needed.length; i++) {
+     if (points_needed[i] != 25 ) {
+         grades_soultion.push( mixed_dict[points_needed[i]] );
+     }
+ }
+ var sum_total = summed_total(points_needed);
+
+ return [percentage_avg, grades_soultion, sum_total];
+
+}
+
+function is_25_in_grades(grade) {
+    var hl_sub = (grade.includes(46)) || (grade.includes(56)) || (grade.includes(66)) || (grade.includes(77)) || (grade.includes(88)) || (grade.includes(100));
+   
+    if ( (hl_sub == true) ) {
+        return true;
+    }
+   
+    else {
+        return false;
+    }
+}
+
+var matches;
+var accounted;
+function plus_25(grade) {
+
+ var output = grade;
+ var hl_sub = (grade.includes(46)) || (grade.includes(56)) || (grade.includes(66)) || (grade.includes(77)) || (grade.includes(88)) || (grade.includes(100));
+
+ if ( (hl_sub == true) && (hl_sub != 25) ) {
+     output.push(25);
+     return output;
+ }
+
+ else {
+     return output;
+ }
+}
+
+function letter_grades_to_points(grades) {
+ var points = [];
+ var dict = {
+     'h1':100,
+     'h2':88,
+     'h3':77,
+     'h4':66,
+     'h5/o1':56,
+     'h6/o2':46,
+     'h7/o3':37,
+
+     'h5/o1':56,
+     'h6/o2':46,
+     'h7/o3':37,
+     'o4':28,
+     'o5':20,
+     'o6':12,
+     'o7':0,
+ };
+
+ for (var i = 0; i < grades.length; i++) {
+     points.push( dict[ grades[i] ] );
+ }
+
+ return points;
+}
+
+function count(array, element) {
+    var counter = 0;
+    for (var i =0; i< array.length; i++) {
+        var current = array[i];
+        if (element == current) {
+            counter += 1;
+        }
+    }
+   
+    return counter;
+}
+
+function summed_total(array) {
+    var counter = 0;
+    for (var i =0; i< array.length; i++) {
+        counter += Number(array[i]);
+    }
+
+    return counter;
+
+}
+
+// as letters
+function rankings(grades) {
+    var ranked_grades = [];
+
+    ranked_grades.push( count(grades, 'h1') );
+    ranked_grades.push( count(grades, 'h2') );
+    ranked_grades.push( count(grades, 'h5/o1') );
+    ranked_grades.push( count(grades, 'h6/o2') );
+
+    var total = count(grades, 'h1') + count(grades, 'h2') + count(grades, 'h5/o1') + count(grades, 'h6/o2');
+
+    return [ranked_grades, total];
+}
+
+function display_plus_25(matches) {
+
+    var hl_subs = Number(document.getElementById("hl_subs_text").value);
+    var boolen_bank = [];
+    for (var i = 0; i < matches.length; i++) {
+        var current = matches[i];
+        if ( is_25_in_grades(current) == true ) {
+            boolen_bank.push(true);
+        }
+    }
+
+    console.log(' count(boolen_bank, true) :  ', count(boolen_bank, true));
+
+    if ( (count(boolen_bank, true) > 0) && (hl_subs > 0) ) {
+        document.getElementById("adding_25_container").style.display = 'inline';
+    }
+
+    else {
+        document.getElementById("adding_25_container").style.display = 'none';
+    }
+}
+
+async function find_points_needed() {
+var target_num = Number(document.getElementById("target_text").value);
+ var hl_num = Number(document.getElementById("hl_subs_text").value);
+ var ol_num = Number(document.getElementById("ol_subs_text").value);
+
+ console.log(target_num, hl_num, ol_num);
+
+ // check for invalid input
+ var invalid_target_input = ( target_num <= 0 ) || ( target_num > 625 );
+ var invalid_subs_input = (hl_num < 0) || (ol_num < 0) || (hl_num >6) || (ol_num >6) || (hl_num+ol_num>6);
+ var impossible_case = target_num > ( (hl_num*100) + (ol_num*56) + 25);
+ 
+
+ 
+ var hl_count = document.getElementById("hl_subs_text");
+ var ol_count = document.getElementById("ol_subs_text");
+
+ console.log('impossible_case: ', impossible_case);
+ console.log('invalid_target_input: ', invalid_target_input);
+ console.log('invalid_subs_input: ', invalid_subs_input);
+ console.log(target_num, Number( (hl_num*100) + (ol_num*56) + 25));
+
+ if ( invalid_target_input || invalid_subs_input || impossible_case ) {
+     
+
+     console.log("INVALID INPUT");
+     document.getElementById("invalid_input").innerHTML = "INVALID INPUT";
+     document.getElementById("invalid_input").style.color = "red";
+     document.getElementById("adding_25_container").style.display = "none";
+
+     hide_rows();
+
+     document.getElementById("invalid_input").style.display = "inline";
+
+ }
+
+ else {
+     document.getElementById("invalid_input").style.display = "none";
+
+
+     var base_grades_info = "grades/["+String(hl_num)+", "+String(ol_num)+"].txt";
+     var base_points_info = "points/["+String(hl_num)+", "+String(ol_num)+"]_points.txt";
+     
+     const grade_ref_text = ref(storage, base_grades_info);
+     const grade_url = await Promise.resolve(getDownloadURL(grade_ref_text));
+     const grade_response = await fetch(grade_url, {mode:'cors'});
+     const grades = JSON.parse(await grade_response.text());
+
+     const point_ref_text = ref(storage, base_points_info);
+     const point_url = await Promise.resolve(getDownloadURL(point_ref_text));
+     const point_response = await fetch(point_url, {mode:'cors'});
+     const points = JSON.parse(await point_response.text());
+
+     // change the target_num if nessecary	
+     while ( points.includes(target_num) == false && target_num <= 625 ) {
+         target_num += 1;
+      }
+
+     matches = [];
+     accounted = [];
+     
+     var current;
+     for (var i = 0; i < grades.length; i++) {
+         var c_grade = grades[i][0];
+         if ( (c_grade != 0) && (c_grade != undefined)  ) {
+             var c_point = Number(grades[i][1]);
+             
+             c_grade = c_grade.sort();
+             if ( (c_point >= target_num) && (accounted.includes(c_grade.toString()) == false ) ) {
+                 matches.push(c_grade);
+                 accounted.push(c_grade.toString());
+             }
+         }
+     }	
+
+
+     // choosing the easist "ranked" soultion-----
+     
+     var all_soultions = []; // all of the current status in one array
+     var order_grade_avg = []; // order_grade_avg for the soultions to follow from smallest to biggest
+
+     for (var i = 0; i < matches.length; i++) {
+         current = matches[i];
+         console.log('current: ', current);
+         var ranked_info = gar_and_ptg(current);  // current grade average
+         var c_grade_avg = ranked_info[0];
+         var c_soultion = ranked_info[1];
+         var c_total = ranked_info[2];
+
+         // has to be within 10 of target and the easiest soultion (by choosing the loweest grade average)
+         
+         if ( target_num + 10 >= c_total ) {
+
+            if ( order_grade_avg.includes(c_grade_avg) == false) {
+                order_grade_avg.push(c_grade_avg);
+            }
+
+            all_soultions.push( [c_soultion, c_grade_avg] );
+        }
+     }
+
+     order_grade_avg = order_grade_avg.sort();
+
+     var collected_soultions = [];
+     var min_grade_avg = order_grade_avg[0];
+     var order_rank_total = [];
+     for (var i = 0; i < all_soultions.length; i++) {
+        var current = all_soultions[i];
+        var c_grade = current[0];
+        var c_avg = current[1];
+
+        if (c_avg == min_grade_avg) {
+            collected_soultions.push([c_grade, rankings(c_grade)]);
+            var ranked_total = rankings(c_grade)[1];
+            collected_soultions.push([c_grade, ranked_total]);
+
+            if (order_rank_total.includes(ranked_total) == false) {
+                order_rank_total.push(ranked_total);
+            }
+        }
+     }
+
+     order_rank_total = order_rank_total.sort();
+
+     var final_soultion = [];
+
+     for (var x = 0; x < order_rank_total.length; x++) {
+        var order = order_rank_total[x];
+
+        for (var i = 0; i < collected_soultions.length; i++) {
+            if (order == collected_soultions[i][1]) {
+                final_soultion.push(plus_25(letter_grades_to_points(collected_soultions[i][0])));
+            }
+        }
+     }
+     
+     final_soultion = final_soultion.sort().reverse();
+     // console.log('final_soultion: ', final_soultion);
+
+
+
+     // create the new matches (so the code can continute as is with its output)
+     // cap the length of matches at 3 to avoid errors with the rows output and to not overwhelm the user
+
+     matches = final_soultion.splice(0, 3);
+
+     // ---------------------------
+
+
+     // then display output
+     var points_req;
+     var req_results;
+     var grades_needed;
+
+
+     for (var i = 0; i < matches.length; i++)  {
+        var row = "row"+String(i+1);
+        document.getElementById(row).style.display = "inline";
+        
+        var current = gar_and_ptg(matches[i]); // letter grades
+        // console.log('current: ', current);
+
+        var grade_avg_req = current[0];
+        var req_results = current[1];
+        var points_req = current[2];
+
+        if ( ( matches[i].includes(25) ) && ( Number(document.getElementById("hl_subs_text").value) == 0 ) ) {
+            points_req -= 25;
+        }
+
+        var id_points_req = "points_req"+String(i+1);
+        var id_req_results = "req_results"+String(i+1);
+        var id_grade_avg_req = "grade_avg_req"+String(i+1);
+        document.getElementById(id_points_req).innerHTML =  String(points_req);
+        document.getElementById(id_req_results).innerHTML = String(req_results);
+        document.getElementById(id_grade_avg_req).innerHTML =  String(grade_avg_req);
+     }
+
+     // hide the rows that aren't used
+     if ( (matches.length > 0) && (matches.length != 3) ) {
+         for (var i = 0; i < 3-matches.length; i++) {
+             var row = "row"+String(3-(i+1)+1);
+             // console.log('hide: ', row);
+             document.getElementById(row).style.display = "none";
+         }
+
+         document.getElementById("invalid_input").style.color = "red";
+         document.getElementById("invalid_input").innerHTML = "INVALID INPUT";
+         document.getElementById("invalid_input").style.display = "none";
+
+         document.getElementById("adding_25_container").style.display = "none";
+     }
+
+     display_plus_25(matches);
+
+ }
+}
+
+// --------------------------------------------------------------------------------------
+// browserify home.js -o bundle.js
+
+// example ----------
+/*
+const ref_text = ref(storage, 'grades/[1, 0].txt');
+
+const text_url = await getDownloadURL(ref_text);
+
+const response = await fetch(text_url, {mode:'cors'});
+var text = await response.text();
+text = JSON.parse(text);
+*/
+// -------------------
+
+// -------
+
+/*
+RESOURCES:
+references in firebase:
+https://firebase.google.com/docs/storage/web/create-reference
+
+what is CORS:
+https://www.youtube.com/watch?v=4KHiSt0oLJ0&ab_channel=Fireship
+
+CORS configuration:
+https://stackoverflow.com/questions/37760695/firebase-storage-and-access-control-allow-origin
+(involes the use of google cloud and gsutil command line tool)
+
+to use await inside of function:
+https://bobbyhadz.com/blog/javascript-unexpected-reserved-word-await#:~:text=The%20%22unexpected%20reserved%20word%20await,of%20how%20the%20error%20occurs
+
+for the correct url:
+https://stackoverflow.com/questions/61396081/how-to-turn-off-default-domain-in-firebase-hosting-firebase
+*/
