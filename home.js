@@ -1,5 +1,5 @@
-if (window.location.hostname == "caopoints-info.web.app" || window.location.hostname == "caopoints-info.firebaseapp.com") {
-    window.location.href = 'https://cao-points-info.com/'; 
+if (window.location.hostname == "----" || window.location.hostname == "------") {
+    window.location.href = '---/'; 
 }
 
 // set the page to 50% zoom
