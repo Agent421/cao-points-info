@@ -1,5 +1,5 @@
-if (window.location.hostname == "----" || window.location.hostname == "------") {
-    window.location.href = '---/'; 
+if (window.location.hostname == "caopoints-info.web.app" || window.location.hostname == "caopoints-info.firebaseapp.com") {
+    window.location.href = 'https://cao-points-info.com/'; 
 }
 
 // set the page to 50% zoom
@@ -12,6 +12,7 @@ if (mobile_user) {
 }
 else {
     document.body.style.zoom = "50%";
+    document.body.style.overflowX = "hidden";
 }
 
 // Import the functions you need from the SDKs you need
@@ -24,14 +25,14 @@ import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/fireba
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
- apiKey: "----",
- authDomain: "----",
- databaseURL: "---",
- projectId: "----",
- storageBucket: "--",
- messagingSenderId: "-",
- appId: "--",
- measurementId: "-----"
+ apiKey: "AIzaSyA5BqxvA4AHcwVZ8IPWvSSHEiJ-3sUgF0g",
+ authDomain: "caopoints-info.firebaseapp.com",
+ databaseURL: "https://caopoints-info-default-rtdb.europe-west1.firebasedatabase.app",
+ projectId: "caopoints-info",
+ storageBucket: "caopoints-info.appspot.com",
+ messagingSenderId: "615159418744",
+ appId: "1:615159418744:web:35978469f92b90b5c9828d",
+ measurementId: "G-08383DC9PC"
 };
 
 // Initialize Firebase Storage --------
@@ -259,7 +260,7 @@ function display_plus_25(matches) {
     }
 }
 
-async function find_points_needed() {
+window.find_points_needed = async function () {
 var target_num = Number(document.getElementById("target_text").value);
  var hl_num = Number(document.getElementById("hl_subs_text").value);
  var ol_num = Number(document.getElementById("ol_subs_text").value);
@@ -270,11 +271,6 @@ var target_num = Number(document.getElementById("target_text").value);
  var invalid_target_input = ( target_num <= 0 ) || ( target_num > 625 );
  var invalid_subs_input = (hl_num < 0) || (ol_num < 0) || (hl_num >6) || (ol_num >6) || (hl_num+ol_num>6);
  var impossible_case = target_num > ( (hl_num*100) + (ol_num*56) + 25);
- 
-
- 
- var hl_count = document.getElementById("hl_subs_text");
- var ol_count = document.getElementById("ol_subs_text");
 
  console.log('impossible_case: ', impossible_case);
  console.log('invalid_target_input: ', invalid_target_input);
@@ -342,7 +338,7 @@ var target_num = Number(document.getElementById("target_text").value);
 
      for (var i = 0; i < matches.length; i++) {
          current = matches[i];
-         console.log('current: ', current);
+         // console.log('current: ', current);
          var ranked_info = gar_and_ptg(current);  // current grade average
          var c_grade_avg = ranked_info[0];
          var c_soultion = ranked_info[1];
