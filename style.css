@@ -2,9 +2,7 @@ body {
 	background-color: #1a75ff;
 	font-family: "Courier new"; /* font-family: 'Comfortaa'; */
 	width: 100%;
-	max-width: 100%;
-	white-space: wrap;
-	overflow-x: hidden; /* hides the scroll bar at the bottom of the page */
+	white-space: normal;
 }
 
 /*
@@ -15,6 +13,10 @@ body {
 	}
   }
 */
+
+table {
+	margin: auto;
+}
 
 #adding_25_container {
 	font-family: "Courier new";
@@ -51,22 +53,14 @@ input::-webkit-input-placeholder {
 	height: auto;
 }
 
-.text-enlargen {
+.input_style {
 	width: 600px;
 	height: 200px;
-	text-align: center;
-	font-family: "Courier new";
-	color: #0066ff;
-	font-weight: bold;
-	border: solid black 5px;
-}
-
-.input_style {
 	text-align: center;
 	background-color: white;
 	padding: 30px;
 	font-family: "Courier new";
-	margin: 20px;
+	margin: auto;
 	font-size: 25px;
 	color: #0066ff;
 	font-weight: bold;
@@ -85,7 +79,7 @@ input::-webkit-input-placeholder {
 }
 
 #info_container {
-	width: auto + -50%;
+	width: auto;
 	font-size: 27px;
 	text-align: center;
 	background-color: white;
@@ -101,7 +95,7 @@ input::-webkit-input-placeholder {
 	text-align: center;
 } 
 
-#ideal {
+.ideal {
 	color: grey;
 }
 
@@ -137,6 +131,8 @@ input::-webkit-input-placeholder {
 }
 
 .text_box {
+	text-align: center;
+	margin: auto;
 	display: inline-block;
 	border: white solid 7px;
 	transition: border, 0.2s;
@@ -188,6 +184,7 @@ input::-webkit-input-placeholder {
 }
 
 .headings {
+	text-align: center;
 	font-size: 70px;
 }
 
@@ -201,6 +198,7 @@ input::-webkit-input-placeholder {
 }
 
 .general_background {
+	margin: auto;
 	background-color: white;
 	width: 100%;
 	padding: 5px;
