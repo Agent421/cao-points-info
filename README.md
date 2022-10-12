@@ -1,4 +1,5 @@
 **What is the CAO points system?** 
+
 CAO Stands for Central Applications Office
 
 They essentially process applications for Irish leaving cert students for third-level education.
@@ -8,6 +9,7 @@ The tool above is targeted at senior Irish Secondary school students. This tool 
 I am not affiliated with the Central Applications Office or the Irish education system.
 
 **Why Use my tool?**
+
 When I was an Irish Leaving cert student it was frustrating and time-consuming to calculate an ideal grade requirement to reach a CAO points target.
 
 So I created this tool.
