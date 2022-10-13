@@ -1,5 +1,5 @@
-if (window.location.hostname == "caopoints-info.web.app" || window.location.hostname == "caopoints-info.firebaseapp.com") {
-    window.location.href = 'https://cao-points-info.com/'; 
+if (window.location.hostname == "---" || window.location.hostname == "-----") {
+    window.location.href = '-----'; 
 }
 
 // set the page to 50% zoom
@@ -25,14 +25,14 @@ import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/fireba
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
- apiKey: "AIzaSyA5BqxvA4AHcwVZ8IPWvSSHEiJ-3sUgF0g",
- authDomain: "caopoints-info.firebaseapp.com",
- databaseURL: "https://caopoints-info-default-rtdb.europe-west1.firebasedatabase.app",
- projectId: "caopoints-info",
- storageBucket: "caopoints-info.appspot.com",
- messagingSenderId: "615159418744",
- appId: "1:615159418744:web:35978469f92b90b5c9828d",
- measurementId: "G-08383DC9PC"
+ apiKey: "---",
+ authDomain: "---",
+ databaseURL: "----",
+ projectId: "---",
+ storageBucket: "---",
+ messagingSenderId: "--",
+ appId: "--",
+ measurementId: "-----"
 };
 
 // Initialize Firebase Storage --------
