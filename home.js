@@ -1,5 +1,5 @@
-if (window.location.hostname == "--" || window.location.hostname == "--") {
-    window.location.href = '-'; 
+if (window.location.hostname == "-----" || window.location.hostname == "----") {
+    window.location.href = 'https://cao-points-info.com/'; 
 }
 
 // set the page to 50% zoom
@@ -25,14 +25,14 @@ import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/fireba
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
- apiKey: "----",
+ apiKey: "---",
  authDomain: "---",
- databaseURL: "---",
+ databaseURL: "--",
  projectId: "--",
- storageBucket: "---",
+ storageBucket: "--",
  messagingSenderId: "-",
- appId: "---",
- measurementId: "----"
+ appId: "-",
+ measurementId: "---"
 };
 
 // Initialize Firebase Storage --------
@@ -185,7 +185,6 @@ function letter_grades_to_points(grades) {
      'h5/o1':56,
      'h6/o2':46,
      'h7/o3':37,
-
      'h5/o1':56,
      'h6/o2':46,
      'h7/o3':37,
@@ -301,11 +300,14 @@ var target_num = Number(document.getElementById("target_text").value);
      const grade_ref_text = ref(storage, base_grades_info);
      const grade_url = await Promise.resolve(getDownloadURL(grade_ref_text));
      const grade_response = await fetch(grade_url, {mode:'cors'});
+
      const grades = JSON.parse(await grade_response.text());
 
      const point_ref_text = ref(storage, base_points_info);
      const point_url = await Promise.resolve(getDownloadURL(point_ref_text));
      const point_response = await fetch(point_url, {mode:'cors'});
+
+     console.log({point_response});
      const points = JSON.parse(await point_response.text());
 
      // change the target_num if nessecary	
