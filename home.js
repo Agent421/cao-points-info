@@ -1,4 +1,4 @@
-if (window.location.hostname == "-----" || window.location.hostname == "----") {
+if (window.location.hostname == "---" || window.location.hostname == "---") {
     window.location.href = 'https://cao-points-info.com/'; 
 }
 
@@ -6,14 +6,6 @@ if (window.location.hostname == "-----" || window.location.hostname == "----") {
 var mobile_user = navigator.userAgent.includes('Mobile') || navigator.userAgent.includes('Android') || navigator.userAgent.includes('Phone');
 
 // console.log(navigator.userAgent);
-
-if (mobile_user) {
-    document.body.style.zoom = "100%";
-}
-else {
-    document.body.style.zoom = "50%";
-    document.body.style.overflowX = "hidden";
-}
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
@@ -27,11 +19,11 @@ import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/fireba
 const firebaseConfig = {
  apiKey: "---",
  authDomain: "---",
- databaseURL: "--",
- projectId: "--",
+ databaseURL: "---",
+ projectId: "-",
  storageBucket: "--",
  messagingSenderId: "-",
- appId: "-",
+ appId: "---",
  measurementId: "---"
 };
 
