@@ -1,16 +1,25 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','---');
+	</script>
+	<!-- End Google Tag Manager -->
+
     <span id="ezoic-privacy-policy-embed"></span>
 	<script type="module" src="home.js"></script>
-	
-	<!-- removed Google tag (gtag.js) --> <!-- this is what causes CORS errors -->
+
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-P9SWD5K');</script>
+	})(window,document,'script','dataLayer','----');</script>
 	<!-- End Google Tag Manager -->
 		<meta charset="utf-8">
 		<meta name="description" content="The website outputs required grade averages and suggested grades to reach a CAO point target given subject-level parameters.">
@@ -28,9 +37,10 @@
 	<body>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9SWD5K"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
 	<!-- End Google Tag Manager (noscript) -->
-		<div id="welcome" class="site-info" style="font-size: 48px;">
+		<div id="welcome" class="site-info">
 			Enter your <strong class="info_output">CAO point target</strong> and <strong class="info_output">subject levels</strong> into the  <strong class="info_output">text fields</strong> to see the <strong class="important-red">suggested</strong> <strong class="info_output">grade averages</strong>, and   <strong class="info_output">results </strong> required to meet a <strong class="info_output">CAO point target</strong>.
 		</div>
 
@@ -41,28 +51,32 @@
 		<table style="margin:auto;">
 			<tr>
 				<th style="margin: auto;">
-					<div  class="text_box"><input id="target_text" type="number" style="height: 200px;font-size: 70px;font-family: 'Courier new';"  class="input_style" placeholder="CAO pts: 1-625"><strong id="target"> </strong></div>
+					<div  class="text_box"><input id="target_text" type="number" style="height: 100px;font-size: 70px;font-family: 'Courier new';"  class="input_style" placeholder="CAO pts: 1-625"><strong id="target"> </strong></div>
 				</th>
 			</tr>
 			<tr>
 				<th style="float:left;">
-					<div class="text_box"><input type="number" id="hl_subs_text"  style="height: 200px;font-size: 70px;"  class="input_style" placeholder="HL Subjects: 1-6"><strong id="hl_subs"> </strong></div>
+					<div class="text_box"><input type="number" id="hl_subs_text"  style="height: 100px;font-size: 70px;"  class="input_style" placeholder="HL Subjects: 1-6"><strong id="hl_subs"> </strong></div>
 				</th>
 				
 				
 				<th style="float:right;">
-					<div class="text_box"><input type="number" id="ol_subs_text"  style="height: 200px;font-size: 70px;" class="input_style" placeholder="OL Subjects: 1-6"><strong id="ol_subs"> </strong></div>
+					<div class="text_box"><input type="number" id="ol_subs_text"  style="height: 100px;font-size: 70px;" class="input_style" placeholder="OL Subjects: 1-6"><strong id="ol_subs"> </strong></div>
 				</th>
 			</tr>
 			<tr>
 				<th style="margin:auto;">
 					<br>
 						<div>
-							<button class="buttons-style"  id="run-button" onclick="find_points_needed();">
+							
 								<strong>
-									Click For Output
+									<a href="#info_container">
+										<button class="buttons-style"  id="run-button" onclick="find_points_needed();">
+											Click For Output
+										</button>
+										
+									</a>									
 								</strong>
-							</button>
 						</div>
 					<br>
 				</th>
@@ -73,7 +87,6 @@
 
 
 		<div id="info_container" style="margin:auto">
-			<br>
 			<div id="adding_25_container">
 				<h1>
 					Adding +25
@@ -140,7 +153,7 @@
 	
 		<br>
 		<div style="text-align: center;">
-			<img src="images/points-system.jpg" alt = "points system" width="75%">
+			<img src="images/points-system.jpg" alt = "points system" width="50%">
 		</div>
 		
 		<br>
