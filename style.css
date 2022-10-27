@@ -14,9 +14,8 @@ table {
 	color: #0066ff;
 }
 
-
 #welcome {
-	font-size: 45px;
+	font-size: 32px;
 	width: 95%;
 	background-color: white;
 }
@@ -27,7 +26,7 @@ html{
 }
 
 input {
-	font-size: 90px;
+	font-size: 32px;
 	width: auto;
 	flex-wrap: wrap;
 }
@@ -70,6 +69,7 @@ input::-webkit-input-placeholder {
 }
 
 #info_container {
+	text-decoration: none;
 	width: auto;
 	font-size: 27px;
 	text-align: center;
@@ -83,6 +83,7 @@ input::-webkit-input-placeholder {
 }
 
 .categories {
+	font-size: 27px;
 	text-align: center;
 } 
 
@@ -118,7 +119,7 @@ input::-webkit-input-placeholder {
 	margin: auto;
 	text-align: center;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 32px;
 }
 
 .text_box {
@@ -140,12 +141,12 @@ input::-webkit-input-placeholder {
 .buttons-style {
 	background-color: white;
 	padding: 25px;
-	width: 650px;
-	height: 180px;
+	width: 400px;
+	height: 200px;
 	margin: auto;
 	border: solid 10px black;
 	font-family: "Courier new";
-	font-size: 50px;
+	font-size: 40px;
 	text-align: center;
 	font-weight: bold;
 	color: blue;
@@ -153,7 +154,7 @@ input::-webkit-input-placeholder {
 }
 
 .buttons-style:hover {
-	font-size: 53px;
+	font-size: 41px;
 	color: #0080ff;
 }
 
@@ -163,24 +164,24 @@ input::-webkit-input-placeholder {
 
 
 .bottom-images {
-	width: 350px;
+	width: 300px;
 	height: auto;
 	transition: 0.2s;
 }
 
 .bottom-images:hover {
-	width: 370px;
+	width: 220px;
 	height: auto;
 	margin: auto;
 }
 
 .headings {
 	text-align: center;
-	font-size: 70px;
+	font-size: 32px;
 }
 
 .general_text {
-	font-size: 55px;
+	font-size: 25px;
 	text-align: center;
 	margin: auto;
 	width: 90%;
