@@ -1,11 +1,6 @@
-if (window.location.hostname == "---" || window.location.hostname == "---") {
+if (window.location.hostname == "---" || window.location.hostname == "----") {
     window.location.href = 'https://cao-points-info.com/'; 
 }
-
-// set the page to 50% zoom
-var mobile_user = navigator.userAgent.includes('Mobile') || navigator.userAgent.includes('Android') || navigator.userAgent.includes('Phone');
-
-// console.log(navigator.userAgent);
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
@@ -17,14 +12,14 @@ import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/fireba
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
- apiKey: "---",
+ apiKey: "--",
  authDomain: "---",
- databaseURL: "---",
- projectId: "-",
- storageBucket: "--",
- messagingSenderId: "-",
- appId: "---",
- measurementId: "---"
+ databaseURL: "--",
+ projectId: "--",
+ storageBucket: "---",
+ messagingSenderId: "--",
+ appId: "--",
+ measurementId: "--"
 };
 
 // Initialize Firebase Storage --------
