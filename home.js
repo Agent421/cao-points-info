@@ -1,31 +1,27 @@
-if (window.location.hostname == "---" || window.location.hostname == "----") {
-    window.location.href = 'https://cao-points-info.com/'; 
+// will redirect the user to the correct website
+var _0x53f917=_0x1780;function _0x1780(_0x310202,_0x28dc44){var _0x100b50=_0x100b();return _0x1780=function(_0x178008,_0x238931){_0x178008=_0x178008-0xcd;var _0x560c38=_0x100b50[_0x178008];return _0x560c38;},_0x1780(_0x310202,_0x28dc44);}function _0x100b(){var _0x2a87cd=['4xtFVYx','location','27zacgGe','8197119XbIXSb','3pGJIAV','542008UcdUub','654174OoBxXo','872880hNHvFC','caopoints-info.web.app','hostname','21366SGHrJa','10981465opRjzP','href','635diJNxU','201290fAWahX'];_0x100b=function(){return _0x2a87cd;};return _0x100b();}(function(_0x2290f8,_0x33eced){var _0x338d46=_0x1780,_0x4e06e0=_0x2290f8();while(!![]){try{var _0x2c8bcb=parseInt(_0x338d46(0xce))/0x1*(parseInt(_0x338d46(0xd1))/0x2)+-parseInt(_0x338d46(0xd0))/0x3*(parseInt(_0x338d46(0xd9))/0x4)+-parseInt(_0x338d46(0xd7))/0x5*(parseInt(_0x338d46(0xd4))/0x6)+parseInt(_0x338d46(0xcd))/0x7+parseInt(_0x338d46(0xcf))/0x8*(parseInt(_0x338d46(0xdb))/0x9)+-parseInt(_0x338d46(0xd8))/0xa+-parseInt(_0x338d46(0xd5))/0xb;if(_0x2c8bcb===_0x33eced)break;else _0x4e06e0['push'](_0x4e06e0['shift']());}catch(_0x2d4e6a){_0x4e06e0['push'](_0x4e06e0['shift']());}}}(_0x100b,0xf2e19));(window['location'][_0x53f917(0xd3)]==_0x53f917(0xd2)||window[_0x53f917(0xda)][_0x53f917(0xd3)]=='caopoints-info.firebaseapp.com')&&(window[_0x53f917(0xda)][_0x53f917(0xd6)]='https://cao-points-info.com/');
+
+var mobile_user = navigator.userAgent.includes('Mobile') || navigator.userAgent.includes('Android') || navigator.userAgent.includes('Phone');
+
+if (mobile_user == true) {
+    document.getElementById('inputs').style.zoom = "150%";
+    document.getElementById('socials').style.zoom = "150%";
 }
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
 import { getStorage, ref, getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-storage.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
- apiKey: "--",
- authDomain: "---",
- databaseURL: "--",
- projectId: "--",
- storageBucket: "---",
- messagingSenderId: "--",
- appId: "--",
- measurementId: "--"
-};
-
+// firebase config
+//------
+function _0x30a4(_0x3cde86,_0x3e7b54){const _0x9a462f=_0x9a46();return _0x30a4=function(_0x30a4ed,_0x334913){_0x30a4ed=_0x30a4ed-0x1e3;let _0x4a2369=_0x9a462f[_0x30a4ed];return _0x4a2369;},_0x30a4(_0x3cde86,_0x3e7b54);}const _0xe840c0=_0x30a4;(function(_0x38a583,_0x5f00cc){const _0x58e8c4=_0x30a4,_0x2bf75e=_0x38a583();while(!![]){try{const _0x47c0a8=parseInt(_0x58e8c4(0x1e4))/0x1*(-parseInt(_0x58e8c4(0x1f4))/0x2)+parseInt(_0x58e8c4(0x1ed))/0x3*(parseInt(_0x58e8c4(0x1e6))/0x4)+parseInt(_0x58e8c4(0x1eb))/0x5+parseInt(_0x58e8c4(0x1e8))/0x6+-parseInt(_0x58e8c4(0x1e5))/0x7*(-parseInt(_0x58e8c4(0x1ea))/0x8)+-parseInt(_0x58e8c4(0x1f2))/0x9*(-parseInt(_0x58e8c4(0x1f3))/0xa)+parseInt(_0x58e8c4(0x1e3))/0xb*(-parseInt(_0x58e8c4(0x1e7))/0xc);if(_0x47c0a8===_0x5f00cc)break;else _0x2bf75e['push'](_0x2bf75e['shift']());}catch(_0x2fda50){_0x2bf75e['push'](_0x2bf75e['shift']());}}}(_0x9a46,0x77780));const firebaseConfig={'apiKey':_0xe840c0(0x1f0),'authDomain':'caopoints-info.firebaseapp.com','databaseURL':'https://caopoints-info-default-rtdb.europe-west1.firebasedatabase.app','projectId':_0xe840c0(0x1ee),'storageBucket':_0xe840c0(0x1ec),'messagingSenderId':_0xe840c0(0x1ef),'appId':_0xe840c0(0x1e9),'measurementId':_0xe840c0(0x1f1)};function _0x9a46(){const _0xcff212=['4MNAyYs','21923fanQNn','230586iluPYr','190351rbQQkk','14648JwfsQi','19644yLNdLL','3521328nlQsrW','1:615159418744:web:35978469f92b90b5c9828d','272WZWHtc','4646570aLqCXI','caopoints-info.appspot.com','654imilfV','caopoints-info','615159418744','AIzaSyA5BqxvA4AHcwVZ8IPWvSSHEiJ-3sUgF0g','G-08383DC9PC','8765793wZZYzm','10mFvQFx'];_0x9a46=function(){return _0xcff212;};return _0x9a46();}
+//----
 // Initialize Firebase Storage --------
 const app = initializeApp(firebaseConfig);
 const storage = getStorage();
 //---------
+
+
 
 
 function hide_rows() {
@@ -79,7 +75,6 @@ function gar_and_ptg(points_needed) {
      56:'h5/o1',
      46:'h6/o2',
      37:'h7/o3',
-
      56:'h5/o1',
      46:'h6/o2',
      37:'h7/o3',
@@ -426,7 +421,6 @@ var target_num = Number(document.getElementById("target_text").value);
      if ( (matches.length > 0) && (matches.length != 3) ) {
          for (var i = 0; i < 3-matches.length; i++) {
              var row = "row"+String(3-(i+1)+1);
-             // console.log('hide: ', row);
              document.getElementById(row).style.display = "none";
          }
 
@@ -441,6 +435,8 @@ var target_num = Number(document.getElementById("target_text").value);
 
  }
 }
+
+
 
 // --------------------------------------------------------------------------------------
 // browserify home.js -o bundle.js
