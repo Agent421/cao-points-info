@@ -3,19 +3,26 @@ body {
 	font-family: "Courier new"; /* font-family: 'Comfortaa'; */
 	width: 100%;
 	white-space: normal;
+	overflow-x: hidden;
 }
 
-table {
+div, table, th, h1 {
 	margin: auto;
+	text-align: center;
+}
+
+h1 {
+	font-size: 2.5rem;
 }
 
 #adding_25_container {
+	font-size: 3rem;
 	font-family: "Courier new";
 	color: #0066ff;
 }
 
 #welcome {
-	font-size: 32px;
+	font-size: 2rem;
 	width: 95%;
 	background-color: white;
 }
@@ -26,15 +33,13 @@ html{
 }
 
 input {
-	font-size: 32px;
-	width: auto;
 	flex-wrap: wrap;
 }
 
 input::-webkit-input-placeholder {
-    font-size: 48px;
+    font-size: 2rem;
     font-family: "Courier new";
-    width: auto;
+    width: 100%;
     flex-wrap: wrap;
 }
 
@@ -43,15 +48,30 @@ input::-webkit-input-placeholder {
 	height: auto;
 }
 
-.input_style {
-	width: 600px;
-	height: 200px;
+.subs_input_style{
+	width: 325px;
+	height: 3rem;
 	text-align: center;
 	background-color: white;
-	padding: 30px;
+	padding: 1rem;
 	font-family: "Courier new";
 	margin: auto;
-	font-size: 25px;
+	font-size: 2.5rem;
+	color: #0066ff;
+	font-weight: bold;
+	border: black solid 5px;
+	transition: border, 0.2s;
+}
+
+.points_input_style {
+	width: 350px;
+	height: 3rem;
+	text-align: center;
+	background-color: white;
+	padding: 1rem;
+	font-family: "Courier new";
+	margin: auto;
+	font-size: 2.5rem;
 	color: #0066ff;
 	font-weight: bold;
 	border: black solid 5px;
@@ -83,7 +103,7 @@ input::-webkit-input-placeholder {
 }
 
 .categories {
-	font-size: 27px;
+	font-size: 2rem;
 	text-align: center;
 } 
 
@@ -122,6 +142,7 @@ input::-webkit-input-placeholder {
 	font-size: 32px;
 }
 
+
 .text_box {
 	text-align: center;
 	margin: auto;
@@ -141,12 +162,12 @@ input::-webkit-input-placeholder {
 .buttons-style {
 	background-color: white;
 	padding: 25px;
-	width: 400px;
-	height: 200px;
+	width: auto;
+	height: 100%;
 	margin: auto;
 	border: solid 10px black;
 	font-family: "Courier new";
-	font-size: 40px;
+	font-size: 2.5rem;
 	text-align: center;
 	font-weight: bold;
 	color: blue;
@@ -164,20 +185,20 @@ input::-webkit-input-placeholder {
 
 
 .bottom-images {
-	width: 300px;
+	width: 200px;
 	height: auto;
 	transition: 0.2s;
 }
 
 .bottom-images:hover {
-	width: 220px;
+	width: 210px;
 	height: auto;
 	margin: auto;
 }
 
 .headings {
 	text-align: center;
-	font-size: 32px;
+	font-size: 2.5rem;
 }
 
 .general_text {
