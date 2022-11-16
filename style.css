@@ -1,9 +1,12 @@
 body {
 	background-color: #1a75ff;
 	font-family: "Courier new"; /* font-family: 'Comfortaa'; */
-	width: 100%;
-	white-space: normal;
+	width: auto;
+	height: auto;
+	zoom: auto;
+	overflow: auto;
 	overflow-x: hidden;
+	scale: auto;
 }
 
 div, table, th, h1 {
@@ -23,7 +26,8 @@ h1 {
 
 #welcome {
 	font-size: 2rem;
-	width: 95%;
+	width: auto;
+	margin: 0px;
 	background-color: white;
 }
 
@@ -121,11 +125,10 @@ input::-webkit-input-placeholder {
 .site-info {
 	background-color: white;
 	padding: 10px;
-	width: 95%;
 	margin: auto;
 	text-align: center;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 2.5rem;
 }
 
 
@@ -185,18 +188,19 @@ input::-webkit-input-placeholder {
 
 
 .bottom-images {
-	width: 200px;
+	width: 18vw;
 	height: auto;
 	transition: 0.2s;
 }
 
 .bottom-images:hover {
-	width: 210px;
+	width: 20vw;
 	height: auto;
 	margin: auto;
 }
 
 .headings {
+	padding: 5px;
 	text-align: center;
 	font-size: 2.5rem;
 }
@@ -205,7 +209,7 @@ input::-webkit-input-placeholder {
 	font-size: 25px;
 	text-align: center;
 	margin: auto;
-	width: 90%;
+	width: 95%;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -214,7 +218,7 @@ input::-webkit-input-placeholder {
 	margin: auto;
 	background-color: white;
 	width: 100%;
-	padding: 5px;
+	padding: 10px;
 }
 
 #cao-link {

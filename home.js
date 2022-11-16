@@ -5,7 +5,9 @@ var mobile_user = navigator.userAgent.includes('Mobile') || navigator.userAgent.
 
 if (mobile_user == true) {
     document.getElementById('inputs').style.zoom = "150%";
-    document.getElementById('socials').style.zoom = "150%";
+    document.getElementById('back-to-top').style.zoom = "150%";
+    document.getElementById('main').style.zoom = "100%";
+    document.getElementById('pts-sys-img').style.width = "90%";
 }
 
 // Import the functions you need from the SDKs you need
@@ -20,8 +22,6 @@ function _0x30a4(_0x3cde86,_0x3e7b54){const _0x9a462f=_0x9a46();return _0x30a4=f
 const app = initializeApp(firebaseConfig);
 const storage = getStorage();
 //---------
-
-
 
 
 function hide_rows() {
