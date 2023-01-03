@@ -85,6 +85,20 @@ input::-webkit-input-placeholder {
 	#adding_25_container {
 		font-size: 1.5rem;
 	}
+
+	#pts_sys_img {
+		width: 95%;
+	}
+}
+
+#pts_sys_img {
+	border-radius: 20px;
+	border: 7px solid black;
+	transition: 0.2s;
+}
+
+#pts_sys_img:hover {
+	border: 7px solid red;
 }
 
 /* for desktop users */
@@ -104,6 +118,10 @@ input::-webkit-input-placeholder {
 
 	#adding_25_container {
 		font-size: 2rem;
+	}
+
+	#pts_sys_img {
+		width: 50%;
 	}
 }
 
@@ -213,13 +231,6 @@ input::-webkit-input-placeholder {
 	transition: 0.2s;
 }
 
-
-#pts_sys_img {
-	width: 95%;
-	border-radius: 20px;
-	border: 7px solid black;
-}
-
 .headings {
 	padding: 5px;
 	text-align: center;
@@ -256,7 +267,6 @@ input::-webkit-input-placeholder {
 .general_background {
 	margin: auto;
 	background-color: white;
-	/* width: 100%; */
 	padding: 10px;
 }
 
@@ -268,5 +278,18 @@ input::-webkit-input-placeholder {
 
 #cao-link:hover {
 	font-size: 1.6rem;
+	color: blue;
+}
+
+#hl_maths_prompt {
+	text-align: center;
+}
+
+#bool_hl_maths_container {
+	display: flex;
+	justify-items: right;
+}
+
+#bool_hl_maths {
 	color: blue;
 }
