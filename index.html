@@ -2,58 +2,64 @@
 <html lang="en">
 
 <head>
-	<span id="ezoic-privacy-policy-embed"></span>
-	<script type="module" src="home.js"></script>
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-P9SWD5K');</script>
+	<!-- End Google Tag Manager -->
+	<script type="module" src="obfuscated.js"></script>
 	<meta charset="utf-8">
 	<meta name="description"
 		content="The website outputs required grade averages and suggested grades to reach a CAO point target given subject-level parameters.">
 	<meta name="keywords" content="CAO, Leaving Cert">
 	<meta name="author" content="Emmanuel Koledoye">
 	<link href='style.css' type='text/css' rel='stylesheet'>
-	<!-- // automatically sets the website to viewed in desktop mode -->
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=0.1 user-scalable=no"> -->
-	<meta name="viewport" content="width=auto, height=auto">
 	<title>
 		Info On CAO Points
 	</title>
 	<!-- This is the favicon image -->
 	<link rel='icon' href='images/logo.png'>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=yes">
 </head>
 
 <body>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9SWD5K" height="0" width="0"
-			style="display:none;visibility:hidden"></iframe>
-	</noscript>
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 	<main id="main">
 		<!-- End Google Tag Manager (noscript) -->
-		<div id="welcome" class="site-info">
+		<div class="site-info">
 			Enter your <strong class="info_output">CAO point target</strong> and <strong class="info_output">subject
-				levels</strong> into the <strong class="info_output">text fields</strong> to see the <strong
-				class="important-red">suggested</strong> <strong class="info_output">grade averages</strong>, and
+				levels</strong> into the <strong class="info_output">text fields</strong> <br>
+			to see the <strong class="important-red">suggested</strong> <strong class="info_output">grade
+				averages</strong>, and
 			<strong class="info_output">results </strong> required to meet a <strong class="info_output">CAO point
 				target</strong>.
 		</div>
-
-		<!-- <a style="display:none;" href="//www.dmca.com/Protection/Status.aspx?ID=2856b17e-9262-4ec9-bc17-c6fda4dbc1f2" title="DMCA.com Protection Status" class="dmca-badge"> <img class="image-enlargen" src ="images/dmca-image.png"  alt="DMCA.com Protection Status"></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script> -->
-
 		<br>
-		<table id="inputs">
+		<table>
 			<tr>
 				<th>
-					<div class="text_box"><input id="target_text" type="number" class="points_input_style"
+					<div><input id="target_text" type="number" class="points_and_subs_input_style"
 							placeholder="CAO pts: 1-625"><strong id="target"> </strong></div>
 				</th>
 			</tr>
 			<tr>
 				<th style="float:left;">
-					<div class="text_box"><input type="number" id="hl_subs_text" class="subs_input_style"
+					<div><input type="number" id="hl_subs_text" class="points_and_subs_input_style"
 							placeholder="HL Subjects: 1-6"><strong id="hl_subs"> </strong></div>
 				</th>
 
 
 				<th style="float:right;">
-					<div class="text_box"><input type="number" id="ol_subs_text" class="subs_input_style"
+					<div><input type="number" id="ol_subs_text" class="points_and_subs_input_style"
 							placeholder="OL Subjects: 1-6"><strong id="ol_subs"> </strong></div>
 				</th>
 			</tr>
@@ -81,12 +87,15 @@
 
 		<div id="info_container">
 			<div id="adding_25_container">
+				<br>
 				<strong>
 					Adding +25
 				</strong>
+				<br>
+				<br>
 			</div>
 
-			<div class="categories" id="row1">
+			<div class="categories" id="row1"> <!-- The inline styling that appears is from the js  -->
 				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output"
 						id="points_req1"> </strong> </h1>
 				<h1> <strong class="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong>
@@ -97,7 +106,9 @@
 			</div>
 
 			<div class="categories" id="row2">
+				<br>
 				<h1><strong class="important-red"> OR</strong></h1>
+				<br>
 				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output"
 						id="points_req2"> </strong> </h1>
 				<h1> <strong class="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong>
@@ -109,7 +120,9 @@
 
 
 			<div class="categories" id="row3">
+				<br>
 				<h1><strong class="important-red"> OR </strong></h1>
+				<br>
 				<h1> Recommended Points: <strong class="colon"> : </strong> <strong class="info_output"
 						id="points_req3"> </strong> </h1>
 				<h1> <strong class="ideal"> (Suggested) </strong>Required Results<strong class="colon"> : </strong>
@@ -117,6 +130,7 @@
 				</h1>
 				<h1> <strong class="ideal"> (Minimum) </strong>Grade Average Required<strong class="colon"> :
 					</strong><strong class="info_output" id="grade_avg_req3"> </strong> </h1>
+				<br>
 			</div>
 
 			<div> <strong id="invalid_input"> </strong> </div>
@@ -134,39 +148,19 @@
 		</script>
 
 		<br>
-
-		<table id="socials">
-			<tr>
-				<th>
-					<div id="support">
-						<a href="https://ko-fi.com/agent421" target="_blank"> <img src="images/kofi.png"
-								class="bottom-images" alt="Support Me On Ko-Fi"> </a>
-					</div>
-				</th>
-
-				<th>
-					<div>
-						<a href="https://github.com/Agent421/cao-points-info" target="_blank"> <img
-								src="images/github.png" class="bottom-images" alt="My github"> </a>
-					</div>
-				</th>
-			</tr>
-		</table>
-
-		<br>
-		<div class="general_background">
+		<div class="general_background headings_banner">
 			<h1 class="headings"> What is the CAO points system?</h1>
 		</div>
 
 		<br>
 		<div>
-			<img src="images/points-system.jpg" id="pts-sys-img" alt="points system" width="50%">
+			<img id="pts_sys_img" src="images/points-system.jpg" alt="points system">
 		</div>
 
 		<br>
 
 		<div class="general_text">
-			<div class="general_background">
+			<div class="general_background headings_banner">
 				<p>
 					CAO Stands for <a href="https://www.cao.ie/" id="cao-link" target="_blank"> <strong
 							class="important-red">C</strong>entral <strong class="important-red">A</strong>pplications
@@ -188,14 +182,14 @@
 		<br>
 
 
-		<div class="general_background">
-			<h1 class="headings"> Why Use my tool?</h1>
+		<div class="general_background headings_banner">
+			<h1 class="headings "> Why Use my tool?</h1>
 		</div>
 
 		<br>
 
 		<div class="general_text">
-			<div class="general_background">
+			<div class="general_background headings_banner">
 				<p>
 					When I was an Irish Leaving cert student it was frustrating and time-consuming to calculate an ideal
 					grade requirement to reach a CAO points target.
@@ -214,11 +208,24 @@
 
 		<br>
 
-		<div id="back-to-top">
+		<div>
 			<a href="#top">
 				<button class="buttons-style">Back to top</button>
 			</a>
 		</div>
+
+		<br>
+
+		<table id="socials">
+			<tr>
+				<th>
+					<div id="support">
+						<a href="https://ko-fi.com/agent421" target="_blank"> <img src="images/kofi.png"
+								class="bottom-images" alt="Support Me On Ko-Fi"> </a>
+					</div>
+				</th>
+			</tr>
+		</table>
 
 		<br>
 	</main>

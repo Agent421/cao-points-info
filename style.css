@@ -1,50 +1,41 @@
 body {
 	background-color: #1a75ff;
-	font-family: "Courier new"; /* font-family: 'Comfortaa'; */
+	font-family: "Courier new";
+	/* font-family: 'Comfortaa'; */
 	width: auto;
 	height: auto;
 	zoom: auto;
 	overflow: auto;
 	overflow-x: hidden;
 	scale: auto;
+	display: flex;
+	justify-content: center;
+	zoom: 90%;
 }
 
-div, table, th, h1 {
+div,
+table,
+th,
+h1 {
 	margin: auto;
 	text-align: center;
 }
 
-h1 {
-	font-size: 2.5rem;
-}
-
 #adding_25_container {
-	font-size: 3rem;
 	font-family: "Courier new";
 	color: #0066ff;
 }
 
-#welcome {
-	font-size: 2rem;
-	width: auto;
-	margin: 0px;
-	background-color: white;
-}
-
-html{
+html {
 	scroll-behavior: smooth;
 	position: relative;
 }
 
-input {
-	flex-wrap: wrap;
-}
-
 input::-webkit-input-placeholder {
-    font-size: 2rem;
-    font-family: "Courier new";
-    width: 100%;
-    flex-wrap: wrap;
+	font-size: auto;
+	font-family: "Courier new";
+	width: auto;
+	flex-wrap: wrap;
 }
 
 .image-enlargen {
@@ -52,54 +43,79 @@ input::-webkit-input-placeholder {
 	height: auto;
 }
 
-.subs_input_style{
-	width: 325px;
-	height: 3rem;
+.bottom-images:hover {
+	width: 34%;
+}
+
+.points_and_subs_input_style {
+	height: 2rem;
 	text-align: center;
 	background-color: white;
 	padding: 1rem;
 	font-family: "Courier new";
 	margin: auto;
-	font-size: 2.5rem;
 	color: #0066ff;
 	font-weight: bold;
-	border: black solid 5px;
+	border: black solid 7px;
 	transition: border, 0.2s;
+	border-radius: 20px;
 }
 
-.points_input_style {
-	width: 350px;
-	height: 3rem;
-	text-align: center;
-	background-color: white;
-	padding: 1rem;
-	font-family: "Courier new";
-	margin: auto;
-	font-size: 2.5rem;
-	color: #0066ff;
-	font-weight: bold;
-	border: black solid 5px;
-	transition: border, 0.2s;
-}
-
-.input_style:active {
+.points_and_subs_input_style:hover {
 	color: white;
 	background-color: black;
-	border: white solid 5px;
+	border: white solid 7px;
 }
 
-.input_style:hover {
-	border: red solid 10px;
+/* for mobile users */
+@media screen and (max-width: 500px) {
+	.points_and_subs_input_style {
+		width: 80vw;
+		font-size: 1.75rem;
+	}
+
+	#info_container {
+		width: 90vw;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	#adding_25_container {
+		font-size: 1.5rem;
+	}
+}
+
+/* for desktop users */
+@media screen and (min-width: 500px) {
+	.points_and_subs_input_style {
+		width: 350px;
+		font-size: 2rem;
+	}
+
+	#info_container {
+		width: 60vw;
+	}
+
+	h1 {
+		font-size: 2rem;
+	}
+
+	#adding_25_container {
+		font-size: 2rem;
+	}
 }
 
 #info_container {
 	text-decoration: none;
-	width: auto;
-	font-size: 27px;
+	font-size: 1.5rem;
 	text-align: center;
 	background-color: white;
-	padding: 50px;
+	padding: 25px;
 	margin: auto;
+	border-radius: 20px;
+	border: 5px solid black;
 }
 
 .colon {
@@ -107,9 +123,10 @@ input::-webkit-input-placeholder {
 }
 
 .categories {
-	font-size: 2rem;
+	display: inline-block;
+	font-size: 1.5rem;
 	text-align: center;
-} 
+}
 
 .ideal {
 	color: grey;
@@ -124,13 +141,14 @@ input::-webkit-input-placeholder {
 
 .site-info {
 	background-color: white;
-	padding: 10px;
+	padding: 5px;
 	margin: auto;
 	text-align: center;
 	font-weight: bold;
-	font-size: 2.5rem;
+	font-size: 2rem;
+	border-radius: 20px;
+	border: 5px solid black;
 }
-
 
 .important-red {
 	color: red;
@@ -155,61 +173,82 @@ input::-webkit-input-placeholder {
 }
 
 .text_box:hover {
-	border: red solid 10px;
+	border: red solid 7px;
 }
 
 .text_box:active {
-	border: red solid 10px;
+	border: red solid 7px;
 }
 
 .buttons-style {
 	background-color: white;
-	padding: 25px;
+	padding: 15px;
 	width: auto;
 	height: 100%;
 	margin: auto;
 	border: solid 10px black;
 	font-family: "Courier new";
-	font-size: 2.5rem;
+	font-size: 1.5rem;
 	text-align: center;
 	font-weight: bold;
+	border-radius: 20px;
 	color: blue;
 	transition: color, font-size, 0.2s;
 }
 
 .buttons-style:hover {
-	font-size: 41px;
-	color: #0080ff;
+	color: white;
+	background-color: black;
+	border: solid 10px white;
 }
 
 .buttons-style:active {
-	color:red;
+	border: solid 10px red;
 }
 
 
 .bottom-images {
-	width: 18vw;
+	width: 33%;
 	height: auto;
 	transition: 0.2s;
 }
 
-.bottom-images:hover {
-	width: 20vw;
-	height: auto;
-	margin: auto;
+
+#pts_sys_img {
+	width: 95%;
+	border-radius: 20px;
+	border: 7px solid black;
 }
 
 .headings {
 	padding: 5px;
 	text-align: center;
-	font-size: 2.5rem;
+	width: 40vw;
+	font-size: 1.5rem;
+}
+
+.headings_banner {
+	width: 90%;
+	border: 5px solid black;
+	border-radius: 20px;
+	transition: 0.2s;
+}
+
+.headings_banner:hover {
+	color: white;
+	background-color: black;
+	border: 7px solid white;
+}
+
+.headings_banner:active {
+	border: 7px solid red;
 }
 
 .general_text {
 	font-size: 25px;
 	text-align: center;
 	margin: auto;
-	width: 95%;
+	width: 100%;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -217,7 +256,7 @@ input::-webkit-input-placeholder {
 .general_background {
 	margin: auto;
 	background-color: white;
-	width: 100%;
+	/* width: 100%; */
 	padding: 10px;
 }
 
@@ -228,6 +267,6 @@ input::-webkit-input-placeholder {
 }
 
 #cao-link:hover {
-	font-size: 56px;
-	color:blue;
+	font-size: 1.6rem;
+	color: blue;
 }
