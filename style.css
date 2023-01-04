@@ -307,3 +307,7 @@ input::-webkit-input-placeholder {
 #bool_hl_maths {
 	color: blue;
 }
+
+#bool_hl_maths:hover {
+	color: white;
+}
