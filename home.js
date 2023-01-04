@@ -15,6 +15,23 @@ const storage = getStorage();
 //---------
 
 
+var did_hl_maths = document.getElementById("bool_hl_maths");
+document.getElementById("bool_hl_maths").addEventListener("click", is_hl_maths);
+var bool_hl_maths = true;
+var counter = 1;
+function is_hl_maths() {
+    if (counter == 0) {
+        document.getElementById("bool_hl_maths").innerHTML = "Yes";
+        bool_hl_maths = true;
+        counter = 1;
+    }
+    else {
+        document.getElementById("bool_hl_maths").innerHTML = "No";
+        bool_hl_maths = false;
+        counter = 0;
+    }
+}
+
 function hide_rows() {
     "use strict";
     // hide all rows
@@ -231,7 +248,7 @@ function display_plus_25(matches) {
 
     console.log(' count(boolen_bank, true) :  ', count(boolen_bank, true));
 
-    if ((count(boolen_bank, true) > 0) && (hl_subs > 0)) {
+    if (bool_hl_maths == true) {
         document.getElementById("adding_25_container").style.display = 'inline';
     }
 
@@ -253,6 +270,7 @@ window.find_points_needed = async function () {
     var invalid_subs_input = (hl_num < 0) || (ol_num < 0) || (hl_num > 6) || (ol_num > 6) || (hl_num + ol_num > 6);
     var impossible_case = target_num > ((hl_num * 100) + (ol_num * 56) + 25);
 
+    console.log('bool_hl_maths: ', bool_hl_maths);
     console.log('impossible_case: ', impossible_case);
     console.log('invalid_target_input: ', invalid_target_input);
     console.log('invalid_subs_input: ', invalid_subs_input);
@@ -284,9 +302,8 @@ window.find_points_needed = async function () {
     else {
         document.getElementById("invalid_input").style.display = "none";
 
-
-        var base_grades_info = "grades/[" + String(hl_num) + ", " + String(ol_num) + "].txt";
-        var base_points_info = "points/[" + String(hl_num) + ", " + String(ol_num) + "]_points.txt";
+        var base_grades_info = String(bool_hl_maths) + "_grades/[" + String(hl_num) + ", " + String(ol_num) + "].txt";
+        var base_points_info = String(bool_hl_maths) + "_points/[" + String(hl_num) + ", " + String(ol_num) + "]_points.txt";
 
         const grade_ref_text = ref(storage, base_grades_info);
         const grade_url = await Promise.resolve(getDownloadURL(grade_ref_text));
@@ -414,7 +431,7 @@ window.find_points_needed = async function () {
             var req_results = current[1];
             var points_req = current[2];
 
-            if ((matches[i].includes(25)) && (Number(document.getElementById("hl_subs_text").value) == 0)) {
+            if ((matches[i].includes(25)) && (Number(document.getElementById("hl_subs_text").value) == 0 || bool_hl_maths == false)) {
                 points_req -= 25;
             }
 
@@ -444,7 +461,6 @@ window.find_points_needed = async function () {
 
     }
 }
-
 
 
 // --------------------------------------------------------------------------------------
