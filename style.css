@@ -1,5 +1,6 @@
 body {
-	background-color: #1a75ff;
+	/* background-color: #1a75ff; */
+	background-image: linear-gradient(#1a75ff, cyan);
 	font-family: "Courier new";
 	/* font-family: 'Comfortaa'; */
 	width: auto;
@@ -228,9 +229,19 @@ input::-webkit-input-placeholder {
 	transition: color, font-size, 0.2s;
 }
 
+#adding_25_text {
+	padding: 15px;
+	transition: 0.2s;
+}
+
+#adding_25_text:hover {
+	color: white;
+}
+
 .buttons-style:hover {
 	color: white;
 	background-color: black;
+	border-radius: 20px;
 	border: solid 10px white;
 }
 
@@ -305,7 +316,7 @@ input::-webkit-input-placeholder {
 }
 
 #bool_hl_maths {
-	color: blue;
+	color: black;
 }
 
 #bool_hl_maths:hover {

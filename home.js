@@ -1,7 +1,3 @@
-// will redirect the user to the correct website
-var _0x53f917 = _0x1780; function _0x1780(_0x310202, _0x28dc44) { var _0x100b50 = _0x100b(); return _0x1780 = function (_0x178008, _0x238931) { _0x178008 = _0x178008 - 0xcd; var _0x560c38 = _0x100b50[_0x178008]; return _0x560c38; }, _0x1780(_0x310202, _0x28dc44); } function _0x100b() { var _0x2a87cd = ['4xtFVYx', 'location', '27zacgGe', '8197119XbIXSb', '3pGJIAV', '542008UcdUub', '654174OoBxXo', '872880hNHvFC', 'caopoints-info.web.app', 'hostname', '21366SGHrJa', '10981465opRjzP', 'href', '635diJNxU', '201290fAWahX']; _0x100b = function () { return _0x2a87cd; }; return _0x100b(); } (function (_0x2290f8, _0x33eced) { var _0x338d46 = _0x1780, _0x4e06e0 = _0x2290f8(); while (!![]) { try { var _0x2c8bcb = parseInt(_0x338d46(0xce)) / 0x1 * (parseInt(_0x338d46(0xd1)) / 0x2) + -parseInt(_0x338d46(0xd0)) / 0x3 * (parseInt(_0x338d46(0xd9)) / 0x4) + -parseInt(_0x338d46(0xd7)) / 0x5 * (parseInt(_0x338d46(0xd4)) / 0x6) + parseInt(_0x338d46(0xcd)) / 0x7 + parseInt(_0x338d46(0xcf)) / 0x8 * (parseInt(_0x338d46(0xdb)) / 0x9) + -parseInt(_0x338d46(0xd8)) / 0xa + -parseInt(_0x338d46(0xd5)) / 0xb; if (_0x2c8bcb === _0x33eced) break; else _0x4e06e0['push'](_0x4e06e0['shift']()); } catch (_0x2d4e6a) { _0x4e06e0['push'](_0x4e06e0['shift']()); } } }(_0x100b, 0xf2e19)); (window['location'][_0x53f917(0xd3)] == _0x53f917(0xd2) || window[_0x53f917(0xda)][_0x53f917(0xd3)] == 'caopoints-info.firebaseapp.com') && (window[_0x53f917(0xda)][_0x53f917(0xd6)] = 'https://cao-points-info.com/');
-
-
 // Import the functions you need from the SDKs you need
 (function (_0x36a688, _0x3907b0) { var _0x546c5 = _0x5d9c, _0x23883e = _0x36a688(); while (!![]) { try { var _0x1fc794 = parseInt(_0x546c5(0x160)) / 0x1 + parseInt(_0x546c5(0x15e)) / 0x2 + parseInt(_0x546c5(0x15a)) / 0x3 * (parseInt(_0x546c5(0x15d)) / 0x4) + parseInt(_0x546c5(0x162)) / 0x5 * (parseInt(_0x546c5(0x15b)) / 0x6) + -parseInt(_0x546c5(0x15f)) / 0x7 + -parseInt(_0x546c5(0x15c)) / 0x8 * (-parseInt(_0x546c5(0x159)) / 0x9) + -parseInt(_0x546c5(0x161)) / 0xa; if (_0x1fc794 === _0x3907b0) break; else _0x23883e['push'](_0x23883e['shift']()); } catch (_0x545e54) { _0x23883e['push'](_0x23883e['shift']()); } } }(_0xd639, 0x553c7)); function _0x5d9c(_0x29f13a, _0x2581e4) { var _0xd639d2 = _0xd639(); return _0x5d9c = function (_0x5d9c26, _0x3dde7a) { _0x5d9c26 = _0x5d9c26 - 0x159; var _0x39a28d = _0xd639d2[_0x5d9c26]; return _0x39a28d; }, _0x5d9c(_0x29f13a, _0x2581e4); } import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js'; function _0xd639() { var _0x2e5268 = ['2235380NedBgR', '15WrMJqO', '9VawhWv', '69171LjfTac', '49830JcJIPu', '887688vSvORJ', '4QYkcuW', '697840UShfyd', '1497454ulduJf', '278734mejAWi']; _0xd639 = function () { return _0x2e5268; }; return _0xd639(); } import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-storage.js';
 
@@ -18,19 +14,29 @@ const storage = getStorage();
 var did_hl_maths = document.getElementById("bool_hl_maths");
 document.getElementById("bool_hl_maths").addEventListener("click", is_hl_maths);
 var bool_hl_maths = true;
+var add_25 = 25;
 var counter = 1;
 function is_hl_maths() {
     if (counter == 0) {
         document.getElementById("bool_hl_maths").innerHTML = "Yes";
+        document.getElementById("adding_25_text").style.opacity = "1";
+        document.getElementById("adding_25_text").style.transition = "0.2s";
         bool_hl_maths = true;
+        add_25 = 25;
         counter = 1;
     }
     else {
         document.getElementById("bool_hl_maths").innerHTML = "No";
+        document.getElementById("adding_25_text").style.opacity = "0";
         bool_hl_maths = false;
+        add_25 = 0;
         counter = 0;
     }
 }
+
+var target_num;
+var hl_num;
+var ol_num;
 
 function hide_rows() {
     "use strict";
@@ -60,15 +66,14 @@ function is_hl(grade) {
 // grade average and points to grades as list of numbers
 function gar_and_ptg(points_needed) {
     "use strict";
+    // ol_num hl_num target_num
+    
+    // issues of duplicate keys for grade average caluclation
     var dict = {
         'h1': 90,
         'h2': 80,
         'h3': 70,
         'h4': 60,
-        'h5/o1': 50,
-        'h6/o2': 40,
-        'h7/o3': 30,
-
         'h5/o1': 90,
         'h6/o2': 80,
         'h7/o3': 70,
@@ -78,17 +83,26 @@ function gar_and_ptg(points_needed) {
         'o7': 30,
     };
 
+    if (hl_num > 0) {
+        dict['h5/o1'] = 50;
+        dict['h6/o2'] = 40;
+        dict['h7/o3'] = 30;
+    }
+    else {
+        dict['h5/o1'] = 90;
+        dict['h6/o2'] = 80;
+        dict['h7/o3'] = 70;
+    }
+
     var mixed_dict = {
         100: 'h1',
         88: 'h2',
         77: 'h3',
         66: 'h4',
-        56: 'h5/o1',
+
         46: 'h6/o2',
         37: 'h7/o3',
         56: 'h5/o1',
-        46: 'h6/o2',
-        37: 'h7/o3',
         28: 'o4',
         20: 'o5',
         12: 'o6',
@@ -177,9 +191,7 @@ function letter_grades_to_points(grades) {
         'h2': 88,
         'h3': 77,
         'h4': 66,
-        'h5/o1': 56,
-        'h6/o2': 46,
-        'h7/o3': 37,
+
         'h5/o1': 56,
         'h6/o2': 46,
         'h7/o3': 37,
@@ -246,9 +258,7 @@ function display_plus_25(matches) {
         }
     }
 
-    console.log(' count(boolen_bank, true) :  ', count(boolen_bank, true));
-
-    if (bool_hl_maths == true) {
+    if (bool_hl_maths == true && valid_inputs == true) {
         document.getElementById("adding_25_container").style.display = 'inline';
     }
 
@@ -257,46 +267,56 @@ function display_plus_25(matches) {
     }
 }
 
+function red_commas(grades) {
+    grades = grades.toString();
+    grades = grades.replaceAll(",", `<strong class="important-red">,</strong>`);
+    return grades;
+}
+
+function error_function(error_msg) {
+    document.getElementById("invalid_input").innerHTML = error_msg;
+    document.getElementById("invalid_input").style.color = "red";
+    document.getElementById("adding_25_container").style.display = "none";
+    hide_rows();
+    document.getElementById("invalid_input").style.display = "inline";
+}
+
+var valid_inputs;
 window.find_points_needed = async function () {
     "use strict";
-    var target_num = Number(document.getElementById("target_text").value);
-    var hl_num = Number(document.getElementById("hl_subs_text").value);
-    var ol_num = Number(document.getElementById("ol_subs_text").value);
-
-    console.log(target_num, hl_num, ol_num);
+    target_num = Number(document.getElementById("target_text").value);
+    hl_num = Number(document.getElementById("hl_subs_text").value);
+    ol_num = Number(document.getElementById("ol_subs_text").value);
 
     // check for invalid input
     var invalid_target_input = (target_num <= 0) || (target_num > 625);
     var invalid_subs_input = (hl_num < 0) || (ol_num < 0) || (hl_num > 6) || (ol_num > 6) || (hl_num + ol_num > 6);
-    var impossible_case = target_num > ((hl_num * 100) + (ol_num * 56) + 25);
+    var max_pts = (hl_num * 100) + (ol_num * 56) + add_25;
+    var invalid_range = (max_pts >= target_num) == false;
 
-    console.log('bool_hl_maths: ', bool_hl_maths);
-    console.log('impossible_case: ', impossible_case);
+    valid_inputs = (invalid_target_input == false) && (invalid_subs_input == false) && (invalid_range == false);
+
+    console.log('\nbool_hl_maths: ', bool_hl_maths);
+    console.log('add_25: ', add_25);
+    console.log('max_pts: ', max_pts);
+    console.log('invalid_range: ', invalid_range);
     console.log('invalid_target_input: ', invalid_target_input);
     console.log('invalid_subs_input: ', invalid_subs_input);
-    console.log(target_num, Number((hl_num * 100) + (ol_num * 56) + 25));
 
-    if (impossible_case) {
-        console.log("INVALID INPUT");
-        var imp_case_para = `It's impossible to achieve ${target_num} CAO points with ${hl_num} higher-level subjects and ${ol_num} ordinary-level subjects.`
-        document.getElementById("invalid_input").innerHTML = imp_case_para;
-        document.getElementById("invalid_input").style.color = "red";
-        document.getElementById("adding_25_container").style.display = "none";
+    var range_error_msg = `It's impossible to achieve ${target_num} CAO points with ${hl_num} higher-level subjects and ${ol_num} ordinary-level subjects.`
+    var pts_error_msg = "Your inputted CAO points must not exceed 625 points.";
+    var subs_error_msh = "This calculator will not allow for more than 6 subjects in total as inputs."
 
-        hide_rows();
-
-        document.getElementById("invalid_input").style.display = "inline";
+    if (invalid_range) {
+        error_function(range_error_msg);
     }
 
-    else if (invalid_target_input || invalid_subs_input) {
-        console.log("INVALID INPUT");
-        document.getElementById("invalid_input").innerHTML = "INVALID INPUT";
-        document.getElementById("invalid_input").style.color = "red";
-        document.getElementById("adding_25_container").style.display = "none";
+    else if (invalid_target_input) {
+        error_function(pts_error_msg);
+    }
 
-        hide_rows();
-
-        document.getElementById("invalid_input").style.display = "inline";
+    else if (invalid_subs_input) {
+        error_function(subs_error_msh);
     }
 
     else {
@@ -315,7 +335,6 @@ window.find_points_needed = async function () {
         const point_url = await Promise.resolve(getDownloadURL(point_ref_text));
         const point_response = await fetch(point_url, { mode: 'cors' });
 
-        console.log({ point_response });
         const points = JSON.parse(await point_response.text());
 
         // change the target_num if nessecary	
@@ -324,11 +343,11 @@ window.find_points_needed = async function () {
         }
 
         matches = [];
-        accounted = [];
+        accounted = []; // temp container
 
         var current;
         for (var i = 0; i < grades.length; i++) {
-            var c_grade = grades[i][0];
+            var c_grade = grades[i][0]; // [x, x, x, x, x, x, x]
             if ((c_grade != 0) && (c_grade != undefined)) {
                 var c_point = Number(grades[i][1]);
 
@@ -341,20 +360,19 @@ window.find_points_needed = async function () {
         }
 
 
-        // choosing the easist "ranked" soultion-----
+        // choosing the easist "ranked" soultion----- (ERR)
 
         var all_soultions = []; // all of the current status in one array
         var order_grade_avg = []; // order_grade_avg for the soultions to follow from smallest to biggest
 
         for (var i = 0; i < matches.length; i++) {
             current = matches[i];
-            // console.log('current: ', current);
-            var ranked_info = gar_and_ptg(current);  // current grade average
-            var c_grade_avg = ranked_info[0];
+            var ranked_info = gar_and_ptg(current);
+            var c_grade_avg = ranked_info[0]; // current grade average
             var c_soultion = ranked_info[1];
             var c_total = ranked_info[2];
 
-            // has to be within 10 of target and the easiest soultion (by choosing the loweest grade average)
+            // has to be within 10 of target and the easiest soultion (by choosing the lowest grade average)
 
             if (target_num + 10 >= c_total) {
 
@@ -402,9 +420,6 @@ window.find_points_needed = async function () {
         }
 
         final_soultion = final_soultion.sort().reverse();
-        // console.log('final_soultion: ', final_soultion);
-
-
 
         // create the new matches (so the code can continute as is with its output)
         // cap the length of matches at 3 to avoid errors with the rows output and to not overwhelm the user
@@ -418,17 +433,17 @@ window.find_points_needed = async function () {
         var points_req;
         var req_results;
         var grades_needed;
-
-
+        
         for (var i = 0; i < matches.length; i++) {
+            console.log('matches: ', matches);
             var row = "row" + String(i + 1);
             document.getElementById(row).style.display = "inline";
 
             var current = gar_and_ptg(matches[i]); // letter grades
-            // console.log('current: ', current);
 
             var grade_avg_req = current[0];
             var req_results = current[1];
+            req_results = red_commas(req_results);
             var points_req = current[2];
 
             if ((matches[i].includes(25)) && (Number(document.getElementById("hl_subs_text").value) == 0 || bool_hl_maths == false)) {
@@ -458,10 +473,8 @@ window.find_points_needed = async function () {
         }
 
         display_plus_25(matches);
-
     }
 }
-
 
 // --------------------------------------------------------------------------------------
 // browserify home.js -o bundle.js
@@ -494,9 +507,6 @@ https://stackoverflow.com/questions/37760695/firebase-storage-and-access-control
 
 to use await inside of function:
 https://bobbyhadz.com/blog/javascript-unexpected-reserved-word-await#:~:text=The%20%22unexpected%20reserved%20word%20await,of%20how%20the%20error%20occurs
-
-for the correct url:
-https://stackoverflow.com/questions/61396081/how-to-turn-off-default-domain-in-firebase-hosting-firebase
 
 add "use-strict"; to all functions (this will speed up the changes in the innerHTML and DOM usage along with helping you to write cleaner code)
 */
