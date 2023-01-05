@@ -7,8 +7,6 @@ body {
 	height: auto;
 	zoom: auto;
 	overflow: auto;
-	overflow-x: hidden;
-	scale: auto;
 	display: flex;
 	justify-content: center;
 	zoom: 90%;
@@ -90,6 +88,16 @@ input::-webkit-input-placeholder {
 	#pts_sys_img {
 		width: 95%;
 	}
+
+	#hl_subs_input {
+		float: none;
+		display: block;
+	}
+
+	#ol_subs_input {
+		float: none;
+		display: block;
+	}
 }
 
 #pts_sys_img {
@@ -123,6 +131,16 @@ input::-webkit-input-placeholder {
 
 	#pts_sys_img {
 		width: 60%;
+	}
+
+	#hl_subs_input {
+		float: left;
+		display: block;
+	}
+
+	#ol_subs_input {
+		float: right;
+		display: block;
 	}
 }
 
@@ -171,7 +189,7 @@ input::-webkit-input-placeholder {
 	margin: auto;
 	text-align: center;
 	font-weight: bold;
-	font-size: 2rem;
+	font-size: 1.75rem;
 	border-radius: 20px;
 	border: 5px solid black;
 	transition: 0.2s;
