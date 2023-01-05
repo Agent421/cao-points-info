@@ -39,9 +39,9 @@ function is_hl_maths() {
     }
 }
 
-var target_num;
-var hl_num;
-var ol_num;
+var target_num = 0;
+var hl_num = 0;
+var ol_num = 0;
 
 function hide_rows() {
     "use strict";
@@ -72,7 +72,7 @@ function is_hl(grade) {
 function gar_and_ptg(points_needed) {
     "use strict";
     // ol_num hl_num target_num
-    
+
     // issues of duplicate keys for grade average caluclation
     var dict = {
         'h1': 90,
@@ -114,18 +114,17 @@ function gar_and_ptg(points_needed) {
         0: 'o7',
     };
 
-    var new_target_needed = false;
     if (points_needed.includes(25) == true) {
         var new_target = 0;
         for (var i = 0; i < points_needed.length - 1; i++) {
             new_target += Number(points_needed[i]);
         }
         new_target += 25;
-        new_target_needed = true;
     }
 
     var letter_grades = [];
 
+    print(typeof(points_needed));
     for (var i = 0; i < points_needed.length; i++) {
 
         if (points_needed[i] != 25) {
@@ -358,7 +357,6 @@ window.find_points_needed = async function () {
             var c_grade = grades[i][0]; // [x, x, x, x, x, x, x]
             if ((c_grade != 0) && (c_grade != undefined)) {
                 var c_point = Number(grades[i][1]);
-
                 c_grade = c_grade.sort();
                 if ((c_point >= target_num) && (accounted.includes(c_grade.toString()) == false)) {
                     matches.push(c_grade);
@@ -420,10 +418,9 @@ window.find_points_needed = async function () {
 
         for (var x = 0; x < order_rank_total.length; x++) {
             var order = order_rank_total[x];
-
             for (var i = 0; i < collected_soultions.length; i++) {
                 if (order <= collected_soultions[i][1]) {
-                    // the plus_25 adds 25 to the list if it is eleible for the points
+                    // the plus_25 adds 25 to the list if it is eligible for the points
                     final_soultion.push(plus_25(letter_grades_to_points(collected_soultions[i][0])));
                 }
             }
@@ -439,13 +436,12 @@ window.find_points_needed = async function () {
         // ---------------------------
 
 
-        // then display output -------------
+        // then display output ------------------
         var points_req;
         var req_results;
         var grades_needed;
-        
+
         for (var i = 0; i < matches.length; i++) {
-            console.log('matches: ', matches);
             var row = "row" + String(i + 1);
             document.getElementById(row).style.display = "inline";
 
@@ -494,7 +490,7 @@ function func_drop1() {
         document.getElementById("drop1-content1").style.display = "block";
         document.getElementById("drop1-content2").style.display = "block";
         drop1_counter = 1;
-        
+
     }
     else {
         document.getElementById("drop1-content1").style.display = "none";

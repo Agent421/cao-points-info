@@ -42,9 +42,6 @@ input::-webkit-input-placeholder {
 	height: auto;
 }
 
-.bottom-images:hover {
-	width: 34%;
-}
 
 .points_and_subs_input_style {
 	height: 2rem;
@@ -98,6 +95,18 @@ input::-webkit-input-placeholder {
 		float: none;
 		display: block;
 	}
+
+	.bottom-images {
+		width: 100px;
+	}
+
+	.bottom-images:hover {
+		width: 110px;
+	}
+
+	.site-info {
+		padding: 5px;
+	}
 }
 
 #pts_sys_img {
@@ -142,6 +151,40 @@ input::-webkit-input-placeholder {
 		float: right;
 		display: block;
 	}
+
+	.bottom-images {
+		width: 150px;
+	}
+
+	.bottom-images:hover {
+		width: 160px;
+	}
+
+	.site-info {
+		padding: 20px;
+	}
+}
+
+.site-info {
+	background-color: white;
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.75rem;
+	border-radius: 20px;
+	border: 5px solid black;
+	transition: 0.2s;
+}
+
+.site-info:hover {
+	color: white;
+	background-color: black;
+	border: 5px solid white;
+}
+
+.bottom-images {
+	height: auto;
+	transition: 0.2s;
 }
 
 #info_container {
@@ -181,24 +224,6 @@ input::-webkit-input-placeholder {
 	text-align: center;
 	color: #0080ff;
 	width: auto;
-}
-
-.site-info {
-	background-color: white;
-	padding: 5px;
-	margin: auto;
-	text-align: center;
-	font-weight: bold;
-	font-size: 1.75rem;
-	border-radius: 20px;
-	border: 5px solid black;
-	transition: 0.2s;
-}
-
-.site-info:hover {
-	color: white;
-	background-color: black;
-	border: 5px solid white;
 }
 
 .important-red {
@@ -265,13 +290,6 @@ input::-webkit-input-placeholder {
 
 .buttons-style:active {
 	border: solid 10px red;
-}
-
-
-.bottom-images {
-	width: 33%;
-	height: auto;
-	transition: 0.2s;
 }
 
 .headings {
