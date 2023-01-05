@@ -237,7 +237,10 @@ function summed_total(array) {
 
 }
 
-// as letters
+/* 
+the ranking system works by count the number h1, h2, o1, and o2s and then output the easiest soultions by having
+the fewest amount of those particular grades
+*/
 function rankings(grades) {
     "use strict";
     var ranked_grades = [];
@@ -365,20 +368,19 @@ window.find_points_needed = async function () {
         }
 
 
-        // choosing the easist "ranked" soultion----- (ERR)
+        // choosing the easist "ranked" soultion-----
 
         var all_soultions = []; // all of the current status in one array
-        var order_grade_avg = []; // order_grade_avg for the soultions to follow from smallest to biggest
+        var order_grade_avg = []; // for the soultions to follow from smallest to biggest
 
         for (var i = 0; i < matches.length; i++) {
             current = matches[i];
             var ranked_info = gar_and_ptg(current);
             var c_grade_avg = ranked_info[0]; // current grade average
-            var c_soultion = ranked_info[1];
-            var c_total = ranked_info[2];
+            var c_soultion = ranked_info[1]; // current grades soultion e.g. [100, 100, 100, 100, 100, 100, 25]
+            var c_total = ranked_info[2]; // current summed total of grades soultion
 
             // has to be within 10 of target and the easiest soultion (by choosing the lowest grade average)
-
             if (target_num + 10 >= c_total) {
 
                 if (order_grade_avg.includes(c_grade_avg) == false) {
@@ -389,7 +391,7 @@ window.find_points_needed = async function () {
             }
         }
 
-        order_grade_avg = order_grade_avg.sort();
+        order_grade_avg = order_grade_avg.sort(); // .sort() so the grade avg can be from the smallest to the largest
 
         var collected_soultions = [];
         var min_grade_avg = order_grade_avg[0];
@@ -399,18 +401,20 @@ window.find_points_needed = async function () {
             var c_grade = current[0];
             var c_avg = current[1];
 
-            if (c_avg == min_grade_avg) {
+            if (c_avg <= min_grade_avg) {
                 collected_soultions.push([c_grade, rankings(c_grade)]);
-                var ranked_total = rankings(c_grade)[1];
+                var ranked_total = rankings(c_grade)[1]; // the summed total of the "ranks" which are defined near the function
                 collected_soultions.push([c_grade, ranked_total]);
 
+                // to avoid duplicates in the order_rank_total
                 if (order_rank_total.includes(ranked_total) == false) {
                     order_rank_total.push(ranked_total);
                 }
             }
         }
 
-        order_rank_total = order_rank_total.sort();
+
+        order_rank_total = order_rank_total.sort(); // listed from smallest to largest
 
         var final_soultion = [];
 
@@ -418,13 +422,14 @@ window.find_points_needed = async function () {
             var order = order_rank_total[x];
 
             for (var i = 0; i < collected_soultions.length; i++) {
-                if (order == collected_soultions[i][1]) {
+                if (order <= collected_soultions[i][1]) {
+                    // the plus_25 adds 25 to the list if it is eleible for the points
                     final_soultion.push(plus_25(letter_grades_to_points(collected_soultions[i][0])));
                 }
             }
         }
 
-        final_soultion = final_soultion.sort().reverse();
+        final_soultion = final_soultion.sort().reverse(); // the end of the list tends to have small grade averages which is it's reversed
 
         // create the new matches (so the code can continute as is with its output)
         // cap the length of matches at 3 to avoid errors with the rows output and to not overwhelm the user
@@ -434,7 +439,7 @@ window.find_points_needed = async function () {
         // ---------------------------
 
 
-        // then display output
+        // then display output -------------
         var points_req;
         var req_results;
         var grades_needed;
