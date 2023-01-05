@@ -22,7 +22,4 @@
 
 _**TLDR; The tool saves student's time, stress, and money.**_
 
-
-
-
 - A special thanks to: @mellodoot, @Blinkzy, and @BarryBeans.
