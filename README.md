@@ -21,3 +21,8 @@
 - The tool also completely FREE to use and doesn't retain any of the user's inputted information.
 
 _**TLDR; The tool saves student's time, stress, and money.**_
+
+
+
+
+- A special thanks to @BarryBeans for suggestions.
