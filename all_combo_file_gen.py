@@ -1,4 +1,5 @@
-import itertools, json
+import itertools
+import json
 
 
 def plus_25(grade):
@@ -72,8 +73,8 @@ def grades_perm(input_list, maths_plus_25):
 
 def calculator(hl_subs, ol_subs, maths_plus_25):
 
-    hl_grades = [37, 46, 56, 66, 77, 88, 100]
-    ol_grades = [12, 20, 28, 37, 46, 56]
+    hl_grades = [0, 37, 46, 56, 66, 77, 88, 100]
+    ol_grades = [0, 12, 20, 28, 37, 46, 56]
     final_soultion = []
 
     linear_case = (hl_subs > 0 and ol_subs == 0) or (
@@ -128,7 +129,7 @@ def calculator(hl_subs, ol_subs, maths_plus_25):
         return final_soultion
 
 # f_test = open(r'C:\Users\eakol\OneDrive\Desktop\Emmanuel K\Programming\FINAL_CAO_POINTS_INFO\public\_test.txt', 'w')
-# f_test.write( str( calculator(4, 2, True) ) )
+# f_test.write( str( calculator(5, 1, True) ) )
 # f_test.close()
 
 
@@ -170,3 +171,5 @@ def files_data(maths_plus_25):
 # files_data(True)
 # print()
 # files_data(False)
+
+# for [5, 1] True at the end of file: [[100, 100, 100, 100, 100, 37, 25], 562], [[100, 100, 100, 100, 100, 46, 25], 571], [[100, 100, 100, 100, 100, 56, 25], 581]

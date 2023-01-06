@@ -1,8 +1,3 @@
-// redirect to the correct website
-// if (window.location.href != "https://www.caopts.com") {
-//     window.location.href = "https://www.caopts.com";
-// }
-
 // Import the functions you need from the SDKs you need
 (function (_0x36a688, _0x3907b0) { var _0x546c5 = _0x5d9c, _0x23883e = _0x36a688(); while (!![]) { try { var _0x1fc794 = parseInt(_0x546c5(0x160)) / 0x1 + parseInt(_0x546c5(0x15e)) / 0x2 + parseInt(_0x546c5(0x15a)) / 0x3 * (parseInt(_0x546c5(0x15d)) / 0x4) + parseInt(_0x546c5(0x162)) / 0x5 * (parseInt(_0x546c5(0x15b)) / 0x6) + -parseInt(_0x546c5(0x15f)) / 0x7 + -parseInt(_0x546c5(0x15c)) / 0x8 * (-parseInt(_0x546c5(0x159)) / 0x9) + -parseInt(_0x546c5(0x161)) / 0xa; if (_0x1fc794 === _0x3907b0) break; else _0x23883e['push'](_0x23883e['shift']()); } catch (_0x545e54) { _0x23883e['push'](_0x23883e['shift']()); } } }(_0xd639, 0x553c7)); function _0x5d9c(_0x29f13a, _0x2581e4) { var _0xd639d2 = _0xd639(); return _0x5d9c = function (_0x5d9c26, _0x3dde7a) { _0x5d9c26 = _0x5d9c26 - 0x159; var _0x39a28d = _0xd639d2[_0x5d9c26]; return _0x39a28d; }, _0x5d9c(_0x29f13a, _0x2581e4); } import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js'; function _0xd639() { var _0x2e5268 = ['2235380NedBgR', '15WrMJqO', '9VawhWv', '69171LjfTac', '49830JcJIPu', '887688vSvORJ', '4QYkcuW', '697840UShfyd', '1497454ulduJf', '278734mejAWi']; _0xd639 = function () { return _0x2e5268; }; return _0xd639(); } import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-storage.js';
 
@@ -123,8 +118,6 @@ function gar_and_ptg(points_needed) {
     }
 
     var letter_grades = [];
-
-    print(typeof(points_needed));
     for (var i = 0; i < points_needed.length; i++) {
 
         if (points_needed[i] != 25) {
@@ -289,7 +282,8 @@ function error_function(error_msg) {
 }
 
 var valid_inputs;
-window.find_points_needed = async function () {
+document.getElementById("output-button").addEventListener("click", find_points_needed);
+async function find_points_needed() {
     "use strict";
     target_num = Number(document.getElementById("target_text").value);
     hl_num = Number(document.getElementById("hl_subs_text").value);
@@ -489,6 +483,7 @@ function func_drop1() {
     if (drop1_counter == 0) {
         document.getElementById("drop1-content1").style.display = "block";
         document.getElementById("drop1-content2").style.display = "block";
+        document.getElementById("drop1-content1").scrollIntoView();
         drop1_counter = 1;
 
     }
@@ -505,6 +500,7 @@ function func_drop2() {
     "use strict";
     if (drop2_counter == 0) {
         document.getElementById("drop2-content").style.display = "block";
+        document.getElementById("drop2-content").scrollIntoView();
         drop2_counter = 1;
     }
     else {

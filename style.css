@@ -5,7 +5,6 @@ body {
 	/* font-family: 'Comfortaa'; */
 	width: auto;
 	height: auto;
-	zoom: auto;
 	overflow: auto;
 	display: flex;
 	justify-content: center;
@@ -28,13 +27,6 @@ h1 {
 html {
 	scroll-behavior: smooth;
 	position: relative;
-}
-
-input::-webkit-input-placeholder {
-	font-size: auto;
-	font-family: "Courier new";
-	width: auto;
-	flex-wrap: wrap;
 }
 
 .image-enlargen {
