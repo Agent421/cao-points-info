@@ -34,6 +34,9 @@ html {
 	height: auto;
 }
 
+.box-shadow {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .points_and_subs_input_style {
 	height: 2rem;
@@ -340,7 +343,7 @@ html {
 
 #bool_hl_maths_container {
 	display: flex;
-	justify-items: right;
+	justify-items: center;
 }
 
 #bool_hl_maths {
@@ -349,4 +352,18 @@ html {
 
 #bool_hl_maths:hover {
 	color: white;
+}
+
+footer {
+	background-image: linear-gradient(white, cyan);
+	border-radius: 20px;
+}
+
+#footer-text {
+	color: black;
+	transition: 0.2s;
+}
+
+#footer-text:hover {
+	color: red;
 }
